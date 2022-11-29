@@ -5,16 +5,16 @@ import Home from "./pages/home";
 export default function App() {
   return (
     <Routes>
-      <Route path="" element={<Wrapper/>} >
-        <Route path="/" element={<Home/>} />
-      </Route>
+      <Route path="" element={<Layout><Home /> </Layout>} />
+      {/* <Route path="/" element={<Home/>} /> */}
     </Routes>
   );
 }
 
-function Wrapper () {
+function Wrapper({ children }) {
   return <Layout>
-    <Outlet/>
+    {children}
   </Layout>
 }
 
+// https://www.figma.com/file/WoSTfRskkgiqnSuCQceFie/API-Direct-Webpage-Designs?node-id=1100%3A4241&t=SyLLU3rxI6SyvgXh-0

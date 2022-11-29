@@ -1,0 +1,233 @@
+.hero {
+    min-height: 100vh;
+    height: 100vh;
+    width: 97%;
+    margin: auto;
+    position: relative;
+    background-color: var(--primary-5);
+}
+
+.hero .holder {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 3rem;
+}
+
+.hero .holder .text .hero-text {
+    font-size: 96px;
+    color: #fff;
+    font-weight: 600;
+    word-wrap: break-word;
+    display: block;
+}
+
+.hero .holder .text .tagline {
+    color: var(--primary-3);
+    font-weight: 600;
+    font-size: 32px;
+    display: block;
+}
+
+.hero .holder .image {
+    width: 315px;
+    background-image: url('/public/images/hero_r_bg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+ /* what is api direct ?  */
+.api-decr-sect {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding-top: 60px;
+    width: calc(100vw - 12rem);
+    margin: auto;
+    color: #fff;
+}   
+
+.api-decr-sect h1.font-mont {
+    font-weight: 600;
+    font-size: var(--fsm36);
+    line-height: 60px;
+    text-align: center;
+}
+
+.api-decr-sect .bg-hold {
+    background-image: url('https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/Api%20Direct%20Version%202%20Resources/Image/bg-3.svg');
+    background-repeat: no-repeat;
+    padding-top: 120px;
+    width: 100%;
+}
+
+.api-decr-sect .bg-hold .left-content {
+    max-width: 710px;
+}
+
+.api-decr-sect .bg-hold .left-content .font-mont {
+    font-weight: 600;
+    font-size: var(--fsm24);
+}
+
+.api-decr-sect .bg-hold .left-content .img-hold {
+    padding-right: 2rem;
+}
+
+.api-decr-sect .bg-hold .left-content .gap {
+    column-gap: 3rem;
+}
+
+.api-decr-sect .bg-hold .left-content .font-lucida {
+    max-width: 414px;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.api-decr-sect .bg-hold .like-form {
+    max-width: 415px;
+    background-color: var(--primary-5);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.api-decr-sect .bg-hold .like-form h2.font-mont {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.api-decr-sect .bg-hold .like-form p {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.api-decr-sect .like-form input{
+    width: 100%; 
+    padding: 12px;
+    background: rgba(13, 155, 156, 0.15);
+    font-family: var(--font-mont);
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box; 
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    outline: none;
+}
+
+.api-decr-sect .like-form input[type=submit] {
+    background-color: var(--primary-3);
+    color: var(--white);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.api-decr-sect .like-form input:focus{
+    outline : 1px solid var(--primary-3);
+    color: #fff;
+} 
+
+.api-decr-sect .like-form input:focus::placeholder{
+    color: #fff;
+}
+
+/*
+.api-decr-sect .left-content{
+    padding-top: 60px;
+    width: 65%;
+    border: 1px solid red;
+    background-image: url('https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/Api%20Direct%20Version%202%20Resources/Image/bg-3.svg');
+    background-repeat: no-repeat;
+}
+.api-decr-sect .left-content .font-mont{
+    font-weight: 600;
+    font-size: var(--fsm24);
+}
+
+.api-decr-sect .left-content .font-lucida{
+    font-size: var(--fsl16);
+    line-height: 16px;
+    max-width: 400px;
+}
+
+.api-decr-sect .like-form {
+    width: 415px;
+    background-color: var(--primary-5);
+}
+.api-decr-sect .like-form h2.font-mont {
+    font-size: var(--fsm20);
+    font-weight: 600;
+}
+*/
+
+/*
+.api-decr-sect .library_desc {
+    font-family: var(--font-mont);
+    font-weight: 600;
+    font-size: var(--fsm24);
+    line-height: 29px;
+}
+
+.api-decr-sect .libary_flex_desc {
+    font-family: var(--font-lucida);
+    max-width: 420px;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 16px;
+}
+
+main .libary_flex{
+    display: flex;
+}
+.api-decr-sect .right_content {
+    background: #001A21;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 29px;
+} 
+
+.api-decr-sect .right_content img{
+    position: absolute;
+    bottom: 90px;
+    right: 0;
+}
+
+form.like-form {
+    Width: 415px;
+    background-color: var(--primary-5);
+    display: flex;
+    flex-direction: column;
+}
+
+.api-decr-sect .like-form input{
+    width: 100%; 
+    padding: 12px;
+    background: rgba(13, 155, 156, 0.15);
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box; 
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    outline: none;
+}
+input[type=submit] {
+    background-color: var(--primary-3);
+    color: var(--white);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+input:focus{
+  border : 1px solid var(--primary-3);
+} 
+*/
