@@ -57,3 +57,7 @@ body {
 .gap-2 {
   column-gap: 2rem;
 }
+
+.w-45 {
+  width: 45%;
+}

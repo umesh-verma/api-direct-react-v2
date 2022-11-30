@@ -105,7 +105,8 @@
     font-weight: 400;
 }
 
-.api-decr-sect .like-form input{
+.api-decr-sect .like-form input,
+.not-api .like-form input{
     width: 100%; 
     padding: 12px;
     background: rgba(13, 155, 156, 0.15);
@@ -119,7 +120,8 @@
     outline: none;
 }
 
-.api-decr-sect .like-form input[type=submit] {
+.api-decr-sect .like-form input[type=submit],
+.not-api .like-form input[type=submit] {
     background-color: var(--primary-3);
     color: var(--white);
     padding: 12px 20px;
@@ -128,106 +130,151 @@
     cursor: pointer;
 }
 
-.api-decr-sect .like-form input:focus{
+.api-decr-sect .like-form input:focus,
+.not-api .like-form input:focus{
     outline : 1px solid var(--primary-3);
     color: #fff;
 } 
 
-.api-decr-sect .like-form input:focus::placeholder{
+.api-decr-sect .like-form input:focus::placeholder,
+.not-api .like-form input:focus::placeholder{
     color: #fff;
 }
 
-/*
-.api-decr-sect .left-content{
-    padding-top: 60px;
+section.not-api {
+    min-height: 70vh;
+    display: grid;
+    place-items: center;
+}
+
+section.not-api > .d-flex {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+section.not-api .d-flex .left-content {
+    background-color: var(--primary-5);
+    padding: 4rem 2rem;
     width: 65%;
-    border: 1px solid red;
-    background-image: url('https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/Api%20Direct%20Version%202%20Resources/Image/bg-3.svg');
-    background-repeat: no-repeat;
-}
-.api-decr-sect .left-content .font-mont{
-    font-weight: 600;
-    font-size: var(--fsm24);
 }
 
-.api-decr-sect .left-content .font-lucida{
-    font-size: var(--fsl16);
+section.not-api .d-flex .font-mont {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 39px;
+}
+
+section.not-api .d-flex .font-lucida {
     line-height: 16px;
-    max-width: 400px;
+    font-size: 16px;
+    color: #fff;
 }
 
-.api-decr-sect .like-form {
-    width: 415px;
+section.not-api .adv-space {
     background-color: var(--primary-5);
-}
-.api-decr-sect .like-form h2.font-mont {
-    font-size: var(--fsm20);
-    font-weight: 600;
-}
-*/
-
-/*
-.api-decr-sect .library_desc {
-    font-family: var(--font-mont);
-    font-weight: 600;
-    font-size: var(--fsm24);
-    line-height: 29px;
-}
-
-.api-decr-sect .libary_flex_desc {
+    width: 33%;
+    display: grid;
     font-family: var(--font-lucida);
-    max-width: 420px;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 16px;
+    color: rgba(255, 255, 255, 0.5);
+    place-items: center;
 }
 
-main .libary_flex{
-    display: flex;
+section.library-hold .font-mont h3 {
+    font-size: 32px;
+    font-weight: 600;
 }
-.api-decr-sect .right_content {
-    background: #001A21;
+
+section.library-hold .search-bar {
+    display: flex;
     border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 29px;
-} 
-
-.api-decr-sect .right_content img{
-    position: absolute;
-    bottom: 90px;
-    right: 0;
+    background-color: var(--primary-5);
+}
+section.library-hold .search-bar:hover, 
+section.library-hold .search-bar:focus-within {
+    outline: 1px solid var(--primary-3);
 }
 
-form.like-form {
-    Width: 415px;
+section.library-hold .search-bar input {
+    width: 100%;
+    outline: none;
+    font-family: var(--font-mont);
+    border: none;
+    border-radius: 5px;
+    padding: 0.8rem;
     background-color: var(--primary-5);
+    transition: 0.2s ease;
+}
+section.library-hold .search-bar input::placeholder {
+    font-family: var(--font-mont);
+    font-weight: 400;
+    font-size: 18px;
+}
+section.library-hold .search-bar input:focus{
+    color: #fff;
+} 
+section.library-hold .tag-container {
+    column-gap: 0.8rem;
+}
+section.library-hold .search-tag {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: 25px;
+    background-color: var(--primary-5);
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    color: var(--primary-3);
+    font-family: var(--font-mont);
+    transition: 0.2s ease;
+}
+
+section.library-hold .search-tag.active,
+section.library-hold .search-tag:hover  {
+    outline: 1.5px solid var(--primary-3);
+}
+
+section.library-hold .view-switch {
+    border: none;
+    outline: none;
+    background-color: var(--primary-5);
+    margin-left: auto;
+    display: flex;
+    column-gap: 0.3rem;
+    color: #fff;
+    font-family: var(--font-mont);
+    font-weight: 500;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+}
+
+section.library-hold .list-view {
     display: flex;
     flex-direction: column;
+    row-gap: 2rem;
 }
-
-.api-decr-sect .like-form input{
-    width: 100%; 
-    padding: 12px;
-    background: rgba(13, 155, 156, 0.15);
-    border: none;
-    border-radius: 5px;
-    box-sizing: border-box; 
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-    outline: none;
+section.library-hold .list-view .api-card {
+    background-color: var(--primary-5);
 }
-input[type=submit] {
-    background-color: var(--primary-3);
-    color: var(--white);
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+section.library-hold .list-view .api-card .title-hold {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    width: 35%;
+    border: 1px solid red;
 }
-input:focus{
-  border : 1px solid var(--primary-3);
-} 
-*/
+section.library-hold .list-view .api-card .img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+section.library-hold .list-view .api-card .title-hold h3 {
+    color: #fff;
+    font-family: var(--font-mont);
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+}
