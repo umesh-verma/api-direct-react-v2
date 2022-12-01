@@ -40,6 +40,14 @@ body {
   padding: 0;
   margin: 0;
   background-color: #000;
+  max-width: 1500px;
+  margin: auto;
+}
+
+#root {
+  max-width: 1500px;
+  margin: auto;
+  position: relative;
 }
 
 .font-mont {

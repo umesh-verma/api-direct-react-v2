@@ -116,6 +116,24 @@ const tags = [
   { title: "Clinicians", tag: "clinicians", iconUrl: "/images/clinicians.svg" },
 ]
 
+const cardsData = [
+  { title: "Cerner R4", image: "https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/cerner-1.png",
+    tags: ["EHR", "HOSPITALS", "CLINICIANS"], description: `Cerner Ignite APIs are cloud-based allowing for rapid,
+    agile deployment of future updates or enhancements. It also simplifies`, by: "",
+    publishedOn: "", version: "", imgTags: ["FHIR", "WORKATO"]
+  }, 
+  { title: "Cerner Millennium R4", image: "https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/cerner-1.png",
+    tags: ["EHR", "HOSPITALS"], description: `Cerner Ignite APIs are cloud-based allowing for rapid,
+    agile deployment of future updates or enhancements. It also simplifies`, by: "",
+    publishedOn: "", version: "", imgTags: ["NON-FHIR", "WORKATO"]
+  },
+  { title: "Cerner Millennium R4", image: "https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/cerner-1.png",
+    tags: ["EHR", "HOSPITALS"], description: `Cerner Ignite APIs are cloud-based allowing for rapid,
+    agile deployment of future updates or enhancements. It also simplifies`, by: "",
+    publishedOn: "", version: "", imgTags: ["FHIR", "WORKATO"]
+  }
+]
+
 function LibraryHold() {
 
   const [selectedTags, setSelectedTags] = useState([]);
@@ -130,6 +148,7 @@ function LibraryHold() {
   const [listView, setListView] = useState(true);
 
   return (
+    <>
     <section className='library-hold'>
       <div className='text-center text-white font-mont'>
         <h3>APIdirect Library</h3>
@@ -157,7 +176,7 @@ function LibraryHold() {
           </button>
         </div>
       </div>
-      <div className="py-3 card-hold container px-0">
+      {/* <div className="py-3 card-hold container px-0">
         <div className="list-view">
           <div className="api-card p-2">
             <div className="title-hold">
@@ -178,7 +197,151 @@ function LibraryHold() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
+    <section className={`cards ${listView ? 'tile': 'grid'}`}>
+      {
+        cardsData.map((c, i) => <Card key={i} data={c} />)
+      }
+    </section>
+    </>
+  )
+}
+
+const imageComponentMap = {
+  "NON-FHIR": <NonFHIR/>,
+  "WORKATO": <WorkatoNoCode/>,
+  "FHIR": <FHIR/>
+}
+
+const tagComponentMap = {
+  "EHR": <EHRTag />,
+  "HOSPITALS": <HospitalTag/>,
+  "CLINICIANS": <ClinicianTag/>
+}
+
+
+
+
+function Card({ data }) {
+  return (
+    <a href="#" target="_blank">
+      <div className="flexBasic">
+        <div className="box-1">
+          <div className="title_image_container">
+            <div className="apiHeader">{data.title}</div>
+            <div className="brandImage" id="brand_image27">
+              <img className="brand_image" src={data.image} />
+            </div>
+          </div>
+          <div className="cardTagsContainer_1" style={{ marginTop: "-7px!important;" }}>
+            {
+              data.imgTags.map((t, i) => <ImageTagRenderer tag={t} key={i} />)
+            }
+            {/* <div className="eachCardTag_1 fhirCard_1">
+              <img class="fhir-image-class" src="https://www.alphalake.ai/hubfs/api-connect-images/FHIR.png" />
+              <div className="eachCardTagText " style={{ color: "#FF4A00;" }}>FHIR</div>
+            </div>
+            <div className="eachCardTag_1 workatoCard_1">
+              <img className="workato-image-class" src="https://fs.hubspotusercontent00.net/hubfs/6637851/api-connect-images/Workato.png" />
+              <div className="eachCardTagText noCode">No<span style={{ color: "#67EADD;" }}>code</span></div>
+            </div> */}
+
+          </div>
+
+          <div className="Api_tags">
+            {
+              data.tags.map((t, i) => <TagRenderer key={i} tag={t} />)
+            }
+            {/* <div className="Api_tags_each">
+              <img className='tag-Image' src="https://www.alphalake.ai/hubfs/api-connect-images/note.png" />
+              <div className="tags_text">EHR</div>
+            </div>
+            <div className="Api_tags_each">
+              <img className='tag-Image' src="https://www.alphalake.ai/hubfs/api-connect-images/hospital.png" />
+              <div className="tags_text">Hospitals</div>
+            </div>
+            <div className="Api_tags_each">
+              <img className='tag-Image' src="https://www.alphalake.ai/hubfs/api-connect-images/Clinician-icon.png" />
+              <div className="tags_text">Clinicians</div>
+            </div> */}
+          </div>
+
+          <div className="explination" style={{ display: "block;" }}>
+            <p>
+              {data.description}
+            </p>
+          </div>
+
+          <div className="top_Brand_text" id="publish_field27">
+            <div className="brand_Text" style={{ paddingTop: "0.2rem;" }}> API by: {data.by}</div>
+            <div className="brand_Text">Published on: {data.publishedOn}</div>
+            <div className="brand_Text">Released version: {data.version}</div>
+          </div>
+        </div>
+      </div>
+    </a>
+  )
+}
+
+function ImageTagRenderer ({ tag }) {
+  return imageComponentMap[tag];
+}
+
+function TagRenderer ({ tag }) {
+  return tagComponentMap[tag];
+}
+
+function FHIR() {
+  return (
+    <div className="eachCardTag_1 fhirCard_1">
+      <img class="fhir-image-class" src="https://www.alphalake.ai/hubfs/api-connect-images/FHIR.png" />
+      <div className="eachCardTagText " style={{ color: "#FF4A00;" }}>FHIR</div>
+    </div>
+  )
+}
+
+function WorkatoNoCode() {
+  return (
+    <div className="eachCardTag_1 workatoCard_1">
+      <img className="workato-image-class" src="https://fs.hubspotusercontent00.net/hubfs/6637851/api-connect-images/Workato.png" />
+      <div className="eachCardTagText noCode">No<span style={{ color: "#67EADD;" }}>code</span></div>
+    </div>
+  )
+}
+
+function NonFHIR() {
+  return (
+    <div class="eachCardTag_1 fhirCard_1">
+      <img class="fhir-image-class" src="https://www.alphalake.ai/hubfs/api-connect-images/FHIR.png" style={{filter: "grayscale(100)"}} />
+        <div class="eachCardTagText ">Non-FHIR</div>
+    </div>
+  )
+}
+
+function EHRTag() {
+  return (
+    <div className="Api_tags_each">
+      <img className='tag-Image' src="https://www.alphalake.ai/hubfs/api-connect-images/note.png" />
+      <div className="tags_text">EHR</div>
+    </div>
+  )
+}
+
+function HospitalTag() {
+  return (
+    <div className="Api_tags_each">
+      <img className='tag-Image' src="https://www.alphalake.ai/hubfs/api-connect-images/hospital.png" />
+      <div className="tags_text">Hospitals</div>
+    </div>
+  )
+}
+
+function ClinicianTag() {
+  return (
+    <div className="Api_tags_each">
+      <img className='tag-Image' src="https://www.alphalake.ai/hubfs/api-connect-images/Clinician-icon.png" />
+      <div className="tags_text">Clinicians</div>
+    </div>
   )
 }

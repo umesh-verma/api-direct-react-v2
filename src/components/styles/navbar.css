@@ -5,18 +5,19 @@ nav {
     position: fixed;
     background: #000;
     top: 0;
-    left: 0;
     z-index: 2;
     align-items: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
     padding-left: 2rem;
     padding-right: 2rem;
+    max-width: 1500px;
+    margin: auto;
 }
 
 .sidepanel {
     width: 0;
-    position: fixed;
+    position: absolute;
     z-index: 1;
     font-family: var(--font-mont);
     height: 100vh;
