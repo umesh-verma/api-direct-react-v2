@@ -1,11 +1,13 @@
 import { Routes, Route, Outlet } from "react-router-dom";
 import Layout from "./components/Layout";
+import ApiDetail from "./pages/api-detail";
 import Home from "./pages/home";
 
 export default function App() {
   return (
     <Routes>
-      <Route path="" element={<Layout><Home /> </Layout>} />
+      <Route path="" element={<Layout><Home /></Layout>} />
+      <Route path="/:api" element={<Layout><ApiDetail/></Layout>} />
       {/* <Route path="/" element={<Home/>} /> */}
     </Routes>
   );

@@ -1,0 +1,121 @@
+section#api-detail {
+    background-image: url('/public/images/details-hero-bg.png');
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+section#api-detail .detail-hero {
+    min-height: 60vh;
+    padding-top: 3%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    color: #fff;
+    width: 100%;
+}
+
+section#api-detail .detail-hero .api-logo {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #fff;
+}
+section#api-detail .detail-hero .api-logo img {
+    object-fit: cover;
+}
+
+section#api-detail .detail-hero .api-title > * {
+    padding-top: 3rem;
+    font-size: 48px;
+    font-weight: 600;
+}
+
+section#api-detail .Api_tags_each {
+    display: flex;
+    background-color: #033A40;
+    padding: 0.9rem;
+    border-radius: 1rem;
+    height: 1.6rem;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+section#api-detail .overview-hold {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+section#api-detail .overview-hold .overview {
+    width: 65%;
+}
+section#api-detail .overview-hold .overview h3.font-mont {
+    font-size: 20px;
+    font-weight: 600;
+}
+section#api-detail .overview-hold .overview p.font-lucida {
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 400;
+}
+section#api-detail .overview-hold .overview .dot-details {
+    font-size: 16px;
+    font-weight: 600;
+}
+section#api-detail .overview-hold .overview .dot-details .label {
+    font-weight: 400;
+}
+
+
+section#api-detail .enquire-form {
+    max-width: 415px;
+    background-color: var(--primary-5);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+section#api-detail .enquire-form h2.font-mont {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+section#api-detail .enquire-form p {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+section#api-detail .enquire-form input {
+    width: 100%; 
+    padding: 12px;
+    background: rgba(13, 155, 156, 0.15);
+    font-family: var(--font-mont);
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box; 
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    outline: none;
+}
+
+section#api-detail .enquire-form input[type=submit] {
+    background-color: var(--primary-3);
+    color: #fff;
+    font-weight: 500;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+section#api-detail .enquire-form input:focus {
+    outline : 1px solid var(--primary-3);
+    color: #fff;
+} 
+
+section#api-detail .enquire-form input:focus::placeholder{
+    color: #fff;
+}

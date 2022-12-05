@@ -69,3 +69,8 @@ body {
 .w-45 {
   width: 45%;
 }
+
+img.tag-Image {
+  height: 1rem;
+  vertical-align: sub;
+}
