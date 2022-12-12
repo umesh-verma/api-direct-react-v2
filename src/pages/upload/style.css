@@ -1,0 +1,10 @@
+section#upload {
+    background-image: url('/public/images/details-hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+section#upload div.text-content {
+    width: 710px;
+}
