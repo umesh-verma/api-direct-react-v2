@@ -1,7 +1,8 @@
-import { useParams } from "react-router-dom";
-import React, { useEffect, useState } from "react";
-import "./styles/api-detail.css";
-import { EHR, Hospitals, Clinicians } from '../components/TextTags';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import TextTagRenderer from '../../components/TextTags';
+import "../styles/global-n.css";
+import "./style.css";
 
 const fakeDatabase = {
     'cerner-r4': {
@@ -9,10 +10,16 @@ const fakeDatabase = {
         image: "https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/cerner-1.png",
         tags: ["EHR", "HOSPITALS", "CLINICIANS"],
         description: `Cerner Ignite APIs are cloud-based allowing for rapid,
-        agile deployment of future updates or enhancements. It also simplifies`,
-        by: "",
-        publishedOn: "",
-        version: "",
+        agile deployment of future updates or enhancements.
+        It also simplifies implementation of the APIs for healthcare
+        providers because the ontology mapping process is centralized,
+        which requires less effort than when performed on a per-deployment
+        basis.`,
+        publish: {
+            by: "Cerner",
+            date: "xx/xx/xx",
+            version: "xx.xx.alpha"
+        },
         imgTags: ["FHIR", "WORKATO"],
         devResources: {
             documentationUrl: "",
@@ -28,21 +35,12 @@ const fakeDatabase = {
     }
 }
 
-// async function getApiDetails (apiName) {
-//     try {
-//         // const { data } = await 
-//         return { error: false, data };
-//     } catch (error) {
-//         console.log(error);
-//         return { error };
-//     }
-// }
+export default function Main() {
 
-export default function ApiDetail() {
     const params = useParams();
 
     const [loading, setLoading] = useState(true);
-    const [apiData, setApiData] = useState({});
+    const [apiData, setApiData] = useState(fakeDatabase['cerner-r4']);
 
     useEffect(() => {
         if (!params.api) return;
@@ -54,144 +52,145 @@ export default function ApiDetail() {
         //     setLoading(false);
         // })
     }, [params.api]);
-
-
-
+    
     return (
-        <>
+        <main>
             <section id="api-detail">
-                <div className="detail-hero text-white container-fluid">
+                <div className="detail-hero container text-white container-fluid">
                     <div className="font-lucida fsxl-l16">
-                        APIdirect Library &gt; {params.api}
+                        APIdirect Library &gt; {apiData.title}
                     </div>
-                    <div className="d-flex flex-column align-items-center">
+                    <div className="grid-center pt-4">
                         <div className="api-logo">
-                            <img src="https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/cerner-1.png" alt="api logo" width='100%' />
+                            <img src="https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/cerner-1.png"
+                                alt="api logo" width='100%' />
                         </div>
                         <div className="api-title">
-                            <h1 className="font-mont">Cerner R4</h1>
+                            <h1 className="font-mont">{apiData.title}</h1>
                         </div>
-                        <div className="api-tags pt-2 d-flex gap-2 font-mont">
+                        <div className="text-tags pt-2">
                             {
-                                ["EHR", "HOSPITALS", "CLINICIANS"].map((t, i) => <TagRenderer key={i} tag={t} />)
+                                apiData.tags.map((t, i) => <TextTagRenderer key={i} tag={t} />)
                             }
                         </div>
                     </div>
-                </div>
-                <div className="d-flex justify-content-between overview-hold">
-                    <div className="overview text-white">
-                        <h3 className="font-mont">Overview</h3>
-                        <br />
-                        <p className="font-lucida">
-                            Cerner Ignite APIs are cloud-based allowing for rapid,
-                            agile deployment of future updates or enhancements.
-                            It also simplifies implementation of the APIs for healthcare
-                            providers because the ontology mapping process is centralized,
-                            which requires less effort than when performed on a per-deployment
-                            basis.
-                        </p>
-                        <div className="pt-4 font-mont">
-                            <div className="dot-details">
-                                <span className="label">Publisher: </span> Cerner
-                            </div>
-                            <div className="dot-details">
-                                <span className="label">Published on: </span> xx/xx/xx
-                            </div>
-                            <div className="dot-details">
-                                <span className="label">Release Version: </span> xx.xx.alpha
-                            </div>
-                        </div>
-                        <div className="d-flex w-75 justify-content-between pt-4 mt-3">
-                            <div className="dev-resource w-50">
-                                <h3 className="font-mont">Developer Resources</h3>
-                                <br />
-                                <a href="#" target='_blank'>
-                                    <h6 className="font-mont text-white">
-                                        <span className="pt-3">
-                                            Documentation
-                                        </span>
-                                        <span className="px-2"></span> <img src="/images/open_in_new.svg" alt="open in new" width='20px' />
-                                    </h6>
-                                </a>
-                                <div className="d-flex w-100 pt-3 justify-content-between">
-                                    <div className="w-50">
-                                        <h6 className="font-mont text-white pb-2">
-                                            Doc Tooling:
-                                        </h6>
-                                        <div className="d-flex">
-                                            <div className="img-wrap ">
-                                                <img src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/githubr.svg" alt="github logo" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="w-50">
-                                        <h6 className="font-mont text-white pb-2">
-                                            Wrapper:
-                                        </h6>
-                                        <div className="d-flex">
-                                            <div className="img-wrap ">
-                                                <img src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/Swagger.svg" alt="swagger logo" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="accessibility">
-                                <h3 className="font-mont">Accessibility</h3>
-                                <br />
-                                <h6 className="font-mont" style={{ color: "var(--primary-3)"}}>
-                                    Partner-only
-                                </h6>
-                                <div className="dot-details font-mont">
-                                    <span className="label">Pricing options in public domain, </span>
-                                    <br />
-                                    become a partner here.
-                                </div>
-                                <div className="ticks font-mont">
-                                    <h6> Documentation <TickMark /></h6>
-                                    <h6>Open Sandbox <TickMark /></h6>
-                                </div>
-                                <br />
-                                <div className="font-mont" style={{ fontSize: 'small' }}>
-                                    <i>
-                                        *Documentation and sandbox only available to partners.
-                                    </i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div className="enquire-form">
-                            <h5 className="font-mont text-white">Enquire about this API</h5>
+                    <div className="overview-n-form">
+                        <div className="overview">
+                            <h6 className="fsxl20 text-white font-mont fw-600">
+                                Overview
+                            </h6>
                             <br />
-                            <div>
-                                <input type="text" name="name" className='input' placeholder='Firstname Surname' />
-                                <input type="email" className='input' name="email" placeholder="Work Email" />
-                                <input type="submit" value="Submit" />
+                            <p className="font-lucida text-white fsxl-l16 fw-400">
+                                {apiData.description}
+                            </p>
+                            <br />
+                            <div className="publish font-mont">
+                                <div className="fsxl-l16">Publisher: <span className="value">{apiData.publish.by}</span></div>
+                                <div className="fsxl-l16">Published on: <span className="value">{apiData.publish.date}</span></div>
+                                <div className="fsxl-l16">Release Version: <span className="value">{apiData.publish.version}</span></div>
+                            </div>
+                            <div className="w-100 d-flex mt-4">
+                                <div className="w-50">
+                                    <h6 className="fsxl20 text-white font-mont fw-600 pb-2">
+                                        Developer Resources
+                                    </h6>
+                                    <a href="#" className="fsxl-m16 fw-600 o-08 text-white font-mont">
+                                        <span>Documentation</span>
+                                        <span className="px-2"></span>
+                                        <img src="/images/open_in_new.svg" alt="open in new" width='20px' />
+                                    </a>
+                                    <div className="w-100 d-flex pt-3">
+                                        <div className="w-50">
+                                            <h6 className="fsxl-m16 fw-600 o-08 text-white font-mont">
+                                                Doc Tooling:
+                                            </h6>
+                                            <div className="tool-imgs d-flex py-1">
+                                                <img src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/githubr.svg"
+                                                    alt="github logo" />
+                                            </div>
+                                        </div>
+                                        <div className="w-50">
+                                            <h6 className="fsxl-m16 fw-600 o-08 text-white font-mont">
+                                                Wrapper:
+                                            </h6>
+                                            <div className="tool-imgs d-flex py-1">
+                                                <img src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/Swagger.svg"
+                                                    alt="swagger logo" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="w-50">
+                                    <h6 className="fsxl20 text-white font-mont fw-600 pb-2">
+                                        Accessibility
+                                    </h6>
+                                    <div className="fsxl-m16 fw-600 font-mont" style={{color: "var(--primary-3);"}}>
+                                        Partner-only
+                                    </div>
+                                    <div className="font-mont pt-1">
+                                        <p className="fsxl-m16">
+                                            Pricing options in public domain,
+                                            <br />
+                                            <a href="#" className="fw-600">become a partner here.</a>
+                                        </p>
+                                    </div>
+                                    <div className="font-mont o-08 fw-600 text-white pt-1 fsxl-m16">
+                                        Documentation <span className="px-1"></span> <svg xmlns="http://www.w3.org/2000/svg"
+                                            xmlnsXlink="http://www.w3.org/1999/xlink" width="16px" height="16px"
+                                            viewBox="0 0 16 16" version="1.1">
+                                            <rect width="16" height="16" id="icon-bound" fill="none" />
+                                            <path
+                                                d="M0,9.014L1.414,7.6L5.004,11.189L14.593,1.6L16.007,3.014L5.003,14.017L0,9.014Z"
+                                                fill="#ffffff88" />
+                                        </svg>
+                                        <br />
+                                        Open Sandbox <span className="px-1"></span> <svg xmlns="http://www.w3.org/2000/svg"
+                                            xmlnsXlink="http://www.w3.org/1999/xlink" width="16px" height="16px"
+                                            viewBox="0 0 16 16" version="1.1">
+                                            <rect width="16" height="16" id="icon-bound" fill="none" />
+                                            <path
+                                                d="M0,9.014L1.414,7.6L5.004,11.189L14.593,1.6L16.007,3.014L5.003,14.017L0,9.014Z"
+                                                fill="#ffffff88" />
+                                        </svg>
+                                    </div>
+                                    <div className="pt-3 font-mont fsxl12">
+                                        <i>*Documentation and sandbox only avaliable to <br /> partners</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="form-hold">
+                            <div className="know-form font-mont">
+                                <div className="pb-4">
+                                    <h5 className="fsxl20 text-white  fw-600">Enquire about this API</h5>
+                                </div>
+                                <form>
+                                    <input type="text" name="name" placeholder="Firstname Surname" />
+                                    <input type="email" name="email" placeholder="Work Email" />
+                                    <input type="submit" value="Submit" />
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
             <br />
-            <section id="resource-tab" className="pt-2">
+            
+            <section id="resource-tab" className="pt-2 container">
                 <nav>
-                    <div className="nav nav-tabs w-100" id="nav-tab" role="tablist">
-                        <button className="nav-link active" id="nav-home-tab"
-                            data-bs-toggle="tab" data-bs-target="#nav-home"
-                            type="button" role="tab" aria-controls="nav-home"
+                    <div className="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button className="nav-link fsxl24 active" id="nav-home-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
                             aria-selected="true">
                             Endpoints
                         </button>
-                        <button className="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
-                            data-bs-target="#nav-profile" type="button" role="tab"
-                            aria-controls="nav-profile" aria-selected="false">
+                        <button className="nav-link fsxl24" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                            type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
                             FHIR Resources
                         </button>
-                        <button
-                            className="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
-                            data-bs-target="#nav-contact" type="button" role="tab"
-                            aria-controls="nav-contact" aria-selected="false">
+                        <button className="nav-link fsxl24" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+                            type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
                             Triggers &amp; Actions
                         </button>
                     </div>
@@ -205,7 +204,7 @@ export default function ApiDetail() {
                         voluptatem perspiciatis pariatur nemo.
                     </div>
                     <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        <div className="d-flex flex-wrap justify-content-around">
+                        <div className="d-flex flex-wrap justify-content-center">
                             <div className="rs-card-wrap">
                                 <div className="rs-card">
                                     <div className="header">
@@ -345,25 +344,6 @@ export default function ApiDetail() {
                     </div>
                 </div>
             </section>
-        </>
-    )
-}
-
-const tagComponentMap = {
-    "EHR": <EHR />,
-    "HOSPITALS": <Hospitals />,
-    "CLINICIANS": <Clinicians />
-}
-
-function TagRenderer({ tag }) {
-    return tagComponentMap[tag];
-}
-
-function TickMark() {
-    return (
-        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="16px" height="16px" viewBox="0 0 16 16" version="1.1">
-            <rect width="16" height="16" id="icon-bound" fill="none" />
-            <path d="M0,9.014L1.414,7.6L5.004,11.189L14.593,1.6L16.007,3.014L5.003,14.017L0,9.014Z" fill="#ffffff88" />
-        </svg>
+        </main>
     )
 }

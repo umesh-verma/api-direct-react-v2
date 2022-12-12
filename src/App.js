@@ -1,7 +1,7 @@
 import { Routes, Route, Outlet } from "react-router-dom";
 import Layout from "./components/Layout";
-import ApiDetail from "./pages/api-detail";
-import Home from "./pages/home";
+import ApiDetail from "./pages/api-detail/index.jsx";
+import Home from "./pages/home/index.jsx";
 
 export default function App() {
   return (
