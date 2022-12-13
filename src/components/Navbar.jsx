@@ -25,7 +25,7 @@ export default function Navbar() {
     }
 
     return (
-        <nav>
+        <nav id="main-nav">
             <div className="logo">
                 <img
                     src="https://www.alphalake.ai/hs-fs/hubfs/logo-1.png?width=366&name=logo-1.png"

@@ -162,7 +162,9 @@ a {
     display: grid;
     place-items: center;
 }
-
+.rg-1 {
+    row-gap: 1rem;
+}
 .search-tag {
     padding: 0.6rem 1.2rem;
     border-radius: 25px;
