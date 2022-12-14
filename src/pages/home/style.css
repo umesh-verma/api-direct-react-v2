@@ -320,8 +320,13 @@ section.cards {
     }
 
     .know-form {
-        width: 290px;
+        width: 290px !important;
+        flex-direction: column;
         padding: 1rem;
+    }
+
+    section.what .know-form form {
+        width: 100%;
     }
 }
 

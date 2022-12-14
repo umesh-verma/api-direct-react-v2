@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import "../styles/global-n.css";
 import Card from './comp-api-card';
 import "./style.css";
@@ -72,6 +72,8 @@ export default function Main() {
         }
     }
     
+    const scrollRef = useRef();
+    const executeScroll = () => scrollRef.current.scrollIntoView()
 
     return (
         <main>
@@ -97,7 +99,7 @@ export default function Main() {
                     </div>
                 </div>
                 <div className="text-center text-white browse">
-                    <h4 className="fsxl24">Browse our API Library </h4>
+                    <h4 className="fsxl24" onClick={executeScroll}>Browse our API Library </h4>
                 </div>
             </section>
 
@@ -183,7 +185,7 @@ export default function Main() {
                 </div>
             </section>
 
-            <section className="direct">
+            <section className="direct" ref={scrollRef}>
                 <div className="container-fluid text-center font-mont">
                     <h2 className="fsxl36 fw-600 text-white">APIdirect Library</h2>
                     <br />
