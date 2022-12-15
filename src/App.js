@@ -7,8 +7,8 @@ import Upload from "./pages/upload/index.jsx";
 export default function App() {
   return (
     <Routes>
-      <Route path="" element={<Layout><Home /></Layout>} />
-      <Route path="upload" element={<Layout><Upload/></Layout>} />
+      <Route path="/" element={<Layout><Home /></Layout>} />
+      <Route path="/upload" element={<Layout><Upload/></Layout>} />
       <Route path="/:api" element={<Layout><ApiDetail/></Layout>} />
       {/* <Route path="/" element={<Home/>} /> */}
     </Routes>
