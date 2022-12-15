@@ -11,7 +11,7 @@ export function WorkatoNoCode() {
     return (
         <div className="img-tag">
             <img className="workato-image" src="https://fs.hubspotusercontent00.net/hubfs/6637851/api-connect-images/Workato.png" />
-            <div className="workato-text">No<span style={{ color: "#67EADD;" }}>code</span></div>
+            <div className="workato-text">No<span style={{ color: "#67EADD" }}>code</span></div>
         </div>
     )
 }
@@ -19,7 +19,7 @@ export function WorkatoNoCode() {
 export function NonFHIR() {
     return (
         <div className="img-tag">
-            <img className="fhir-image" src="https://www.alphalake.ai/hubfs/api-connect-images/FHIR.png" style={{ filter: "grayscale(100);" }} />
+            <img className="fhir-image" src="https://www.alphalake.ai/hubfs/api-connect-images/FHIR.png" style={{ filter: "grayscale(100)" }} />
             <div className="fhir-text ">Non-FHIR</div>
         </div>
     )

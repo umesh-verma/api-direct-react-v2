@@ -61,10 +61,10 @@ export default function Card({ data = fakeData }) {
                         {data.description}
                     </p>
                 </div>
-                <div class="publish">
-                    <div class="fsxl-l16">API by: <span class="value">{data.publisher.by}</span></div>
-                    <div class="fsxl-l16">Published on: <span class="value">{data.publisher.date}</span></div>
-                    <div class="fsxl-l16">Released version: <span class="value">{data.publisher.version}</span></div>
+                <div className="publish">
+                    <div className="fsxl-l16">API by: <span className="value">{data.publisher.by}</span></div>
+                    <div className="fsxl-l16">Published on: <span className="value">{data.publisher.date}</span></div>
+                    <div className="fsxl-l16">Released version: <span className="value">{data.publisher.version}</span></div>
                 </div>
             </div>
         // </Link>

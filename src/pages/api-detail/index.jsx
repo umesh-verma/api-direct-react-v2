@@ -124,7 +124,7 @@ export default function Main() {
                                     <h6 className="fsxl20 text-white font-mont fw-600 pb-2">
                                         Accessibility
                                     </h6>
-                                    <div className="fsxl-m16 fw-600 font-mont" style={{color: "var(--primary-3);"}}>
+                                    <div className="fsxl-m16 fw-600 font-mont" style={{color: "var(--primary-3)"}}>
                                         Partner-only
                                     </div>
                                     <div className="font-mont pt-1">

@@ -192,7 +192,7 @@ export default function Main() {
                     <br />
                     <p className="fsxl20 text-white">
                         Browse our selection of avaliable APIs or if you would like <br />
-                        to have yours listed, request it <a href="#" style={{ color: "var(--primary-3)", textDecoration: "none;" }}>here.</a>
+                        to have yours listed, request it <a href="#" style={{ color: "var(--primary-3)", textDecoration: "none" }}>here.</a>
                     </p>
                 </div>
                 <br />
@@ -226,9 +226,9 @@ export default function Main() {
                             }
                         </div>
                         <button className='view-switch' onClick={() => setListView(prev => !prev)}>
-                            <img src={listView ? "/images/grid_view.svg" : "/images/list_view.svg"} alt="icon" />
+                            {listView ? <GridIcon/> : <ListIcon/>}
                             <span>
-                                {listView ? <GridIcon/> : <ListIcon/>}
+                                {listView ? "Grid View" : "List View"}
                             </span>
                         </button>
                     </div>

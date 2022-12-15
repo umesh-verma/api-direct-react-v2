@@ -236,39 +236,39 @@ export default function Main() {
                     <div className="q-hold">
                       <label htmlFor="doc">What other tools have you used to publish this API?</label>
                       <div className="d-flex flex-wrap">
-                        <div class="form-check w-50">
-                          <input class="form-check-input" type="checkbox" name='tools'
+                        <div className="form-check w-50">
+                          <input className="form-check-input" type="checkbox" name='tools'
                            value="SWAGGER" id="SWAGGER_CHECK" 
                            onChange={handleCheckboxChange}
                           />
-                          <label class="form-check-label" for="SWAGGER_CHECK">
+                          <label className="form-check-label" for="SWAGGER_CHECK">
                             Swagger
                           </label>
                         </div>
-                        <div class="form-check w-50">
-                          <input class="form-check-input" type="checkbox" name='tools'
+                        <div className="form-check w-50">
+                          <input className="form-check-input" type="checkbox" name='tools'
                             onChange={handleCheckboxChange} 
                             value="UPLOAD-IO" id="UPLOAD-IO_CHECK" 
                           />
-                          <label class="form-check-label" for="UPLOAD-IO_CHECK">
+                          <label className="form-check-label" for="UPLOAD-IO_CHECK">
                             Upload.io
                           </label>
                         </div>
-                        <div class="form-check w-50">
-                          <input class="form-check-input" type="checkbox" name='tools'
+                        <div className="form-check w-50">
+                          <input className="form-check-input" type="checkbox" name='tools'
                             onChange={handleCheckboxChange} 
                             value="GITHUB" id="GITHUB_CHECK" 
                           />
-                          <label class="form-check-label" for="GITHUB_CHECK">
+                          <label className="form-check-label" for="GITHUB_CHECK">
                             Github
                           </label>
                         </div>
-                        <div class="form-check w-50">
-                          <input class="form-check-input" type="checkbox" name='tools'
+                        <div className="form-check w-50">
+                          <input className="form-check-input" type="checkbox" name='tools'
                             onChange={handleCheckboxChange} 
                             value="RAPID-API" id="RAPID-API_CHECK" 
                           />
-                          <label class="form-check-label" for="RAPID-API_CHECK">
+                          <label className="form-check-label" for="RAPID-API_CHECK">
                             RapidAPI
                           </label>
                         </div>
@@ -278,39 +278,39 @@ export default function Main() {
                     <div className="q-hold">
                       <label htmlFor="doc">What data formats are used in your API?</label>
                       <div className="d-flex flex-wrap">
-                        <div class="form-check w-50">
-                          <input class="form-check-input" type="checkbox" name='dataFormats' 
+                        <div className="form-check w-50">
+                          <input className="form-check-input" type="checkbox" name='dataFormats' 
                             onChange={handleCheckboxChange} 
                             value="JSON" id="JSON_CHECK" 
                           />
-                          <label class="form-check-label" for="JSON_CHECK">
+                          <label className="form-check-label" for="JSON_CHECK">
                             JSON
                           </label>
                         </div>
-                        <div class="form-check w-50">
-                          <input class="form-check-input" type="checkbox" name='dataFormats'
+                        <div className="form-check w-50">
+                          <input className="form-check-input" type="checkbox" name='dataFormats'
                             onChange={handleCheckboxChange} 
                             value="URL-ENCODED" id="URL_CHECK" 
                           />
-                          <label class="form-check-label" for="URL_CHECK">
+                          <label className="form-check-label" for="URL_CHECK">
                             URL Encoded
                           </label>
                         </div>
-                        <div class="form-check w-50">
-                          <input class="form-check-input" type="checkbox" name='dataFormats' 
+                        <div className="form-check w-50">
+                          <input className="form-check-input" type="checkbox" name='dataFormats' 
                             onChange={handleCheckboxChange} 
                             value="XML" id="XML_CHECK" 
                           />
-                          <label class="form-check-label" for="XML_CHECK">
+                          <label className="form-check-label" for="XML_CHECK">
                             XML
                           </label>
                         </div>
-                        <div class="form-check w-50">
-                          <input class="form-check-input" type="checkbox" name='dataFormats' 
+                        <div className="form-check w-50">
+                          <input className="form-check-input" type="checkbox" name='dataFormats' 
                             onChange={handleCheckboxChange} 
                             value="FORM-DATA" id="Form_CHECK" 
                           />
-                          <label class="form-check-label" for="Form_CHECK">
+                          <label className="form-check-label" for="Form_CHECK">
                             Form Data
                           </label>
                         </div>
@@ -374,30 +374,30 @@ export default function Main() {
                         at your database level?
                       </label>
                       <div className="d-flex flex-wrap">
-                        <div class="form-check w-50">
-                          <input class="form-check-input" type="radio" name='databaseType' 
+                        <div className="form-check w-50">
+                          <input className="form-check-input" type="radio" name='databaseType' 
                             onChange={handleCheckboxChange}
                             value="PERIODIC-SCHEDULED" id="PER_CHECK" 
                           />
-                          <label class="form-check-label" for="PER_CHECK">
+                          <label className="form-check-label" for="PER_CHECK">
                             Periodic/Scheduled
                           </label>
                         </div>
-                        <div class="form-check w-50">
-                          <input class="form-check-input" type="radio" name='databaseType' 
+                        <div className="form-check w-50">
+                          <input className="form-check-input" type="radio" name='databaseType' 
                             onChange={handleCheckboxChange}
                             value="URL-ENCODED" id="OTH_CHECK" 
                           />
-                          <label class="form-check-label" for="OTH_CHECK">
+                          <label className="form-check-label" for="OTH_CHECK">
                             Other (please specify)
                           </label>
                         </div>
-                        <div class="form-check w-50">
-                          <input class="form-check-input" type="radio" name='databaseType' 
+                        <div className="form-check w-50">
+                          <input className="form-check-input" type="radio" name='databaseType' 
                             onChange={handleCheckboxChange}
                             value="XML" id="REAL_CHECK" 
                           />
-                          <label class="form-check-label" for="REAL_CHECK">
+                          <label className="form-check-label" for="REAL_CHECK">
                             Real time
                           </label>
                         </div>

@@ -21,7 +21,7 @@ export function Hospitals() {
     return (
         <div className="text-tag">
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 17.1C4.52655 17.1 0.9 13.4734 0.9 9C0.9 4.52655 4.52655 0.9 9 0.9C13.4734 0.9 17.1 4.52655 17.1 9C17.1 13.4734 13.4734 17.1 9 17.1ZM0 9C0 4.0293 4.0293 0 9 0C13.9707 0 18 4.0293 18 9C18 13.9707 13.9707 18 9 18C4.0293 18 0 13.9707 0 9ZM7.19595 13.0716V9.9216H10.7959V13.0716H12.5959V4.9716H10.7959V8.1216H7.19595V4.9716H5.39595V13.0716H7.19595Z" fill="#059B9C" />
+                <path fillRule="evenodd" clipRule="evenodd" d="M9 17.1C4.52655 17.1 0.9 13.4734 0.9 9C0.9 4.52655 4.52655 0.9 9 0.9C13.4734 0.9 17.1 4.52655 17.1 9C17.1 13.4734 13.4734 17.1 9 17.1ZM0 9C0 4.0293 4.0293 0 9 0C13.9707 0 18 4.0293 18 9C18 13.9707 13.9707 18 9 18C4.0293 18 0 13.9707 0 9ZM7.19595 13.0716V9.9216H10.7959V13.0716H12.5959V4.9716H10.7959V8.1216H7.19595V4.9716H5.39595V13.0716H7.19595Z" fill="#059B9C" />
             </svg>
             <div className="tag-text">Hospitals</div>
         </div>
@@ -31,7 +31,7 @@ export function Hospitals() {
 export function HospitalIcon() {
     return (
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M9 17.1C4.52655 17.1 0.9 13.4734 0.9 9C0.9 4.52655 4.52655 0.9 9 0.9C13.4734 0.9 17.1 4.52655 17.1 9C17.1 13.4734 13.4734 17.1 9 17.1ZM0 9C0 4.0293 4.0293 0 9 0C13.9707 0 18 4.0293 18 9C18 13.9707 13.9707 18 9 18C4.0293 18 0 13.9707 0 9ZM7.19595 13.0716V9.9216H10.7959V13.0716H12.5959V4.9716H10.7959V8.1216H7.19595V4.9716H5.39595V13.0716H7.19595Z" fill="#059B9C" />
+            <path fillRule="evenodd" clipRule="evenodd" d="M9 17.1C4.52655 17.1 0.9 13.4734 0.9 9C0.9 4.52655 4.52655 0.9 9 0.9C13.4734 0.9 17.1 4.52655 17.1 9C17.1 13.4734 13.4734 17.1 9 17.1ZM0 9C0 4.0293 4.0293 0 9 0C13.9707 0 18 4.0293 18 9C18 13.9707 13.9707 18 9 18C4.0293 18 0 13.9707 0 9ZM7.19595 13.0716V9.9216H10.7959V13.0716H12.5959V4.9716H10.7959V8.1216H7.19595V4.9716H5.39595V13.0716H7.19595Z" fill="#059B9C" />
         </svg>
     )
 }
@@ -71,7 +71,7 @@ export default function TextTagRenderer ({ tag }) {
 export function GridIcon() {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <mask id="mask0_1238_6587" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+            <mask id="mask0_1238_6587" style={{maskType:"alpha"}} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                 <rect width="24" height="24" fill="#D9D9D9" />
             </mask>
             <g mask="url(#mask0_1238_6587)">
@@ -84,7 +84,7 @@ export function GridIcon() {
 export function ListIcon() {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <mask id="mask0_1238_6948" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+            <mask id="mask0_1238_6948" style={{maskType: "alpha"}} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                 <rect width="24" height="24" fill="#CCD1D3" />
             </mask>
             <g mask="url(#mask0_1238_6948)">
