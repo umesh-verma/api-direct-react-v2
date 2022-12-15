@@ -9,7 +9,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Layout><Home /></Layout>} />
       <Route path="/upload" element={<Layout><Upload/></Layout>} />
-      <Route path="/:api" element={<Layout><ApiDetail/></Layout>} />
+      <Route path="/detail/:api" element={<Layout><ApiDetail/></Layout>} />
       {/* <Route path="/" element={<Home/>} /> */}
     </Routes>
   );

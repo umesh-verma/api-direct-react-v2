@@ -27,7 +27,7 @@ export default function Card({ data = fakeData }) {
 
     const navigate = useNavigate();
     function onCardClick () {
-        navigate(createSlug(data.title));
+        navigate('detail/'+createSlug(data.title));
     }
 
     return (
