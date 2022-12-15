@@ -2,9 +2,9 @@
   "name": "react-v2",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://alphalake-ai.github.io",
   "dependencies": {
     "cra-template": "1.2.0",
-    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
@@ -35,5 +35,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
