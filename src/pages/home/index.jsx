@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { CliniciansIcon, EhrIcon, HospitalIcon } from '../../components/TextTags';
+import { CliniciansIcon, EhrIcon, GridIcon, HospitalIcon, ListIcon } from '../../components/TextTags';
 import "../styles/global-n.css";
 import Card from './comp-api-card';
 import "./style.css";
@@ -228,7 +228,7 @@ export default function Main() {
                         <button className='view-switch' onClick={() => setListView(prev => !prev)}>
                             <img src={listView ? "/images/grid_view.svg" : "/images/list_view.svg"} alt="icon" />
                             <span>
-                                {listView ? "Grid View" : "List View"}
+                                {listView ? <GridIcon/> : <ListIcon/>}
                             </span>
                         </button>
                     </div>
