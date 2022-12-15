@@ -1,13 +1,14 @@
 import React, { useRef, useState } from 'react';
+import { CliniciansIcon, EhrIcon, HospitalIcon } from '../../components/TextTags';
 import "../styles/global-n.css";
 import Card from './comp-api-card';
 import "./style.css";
 
 
 const tags = [
-    { title: "EHR", tag: "ehr", iconUrl: "/images/ehr-page.svg" },
-    { title: "Hospital", tag: "hospital", iconUrl: "/images/hospital-h.svg" },
-    { title: "Clinicians", tag: "clinicians", iconUrl: "/images/clinicians.svg" },
+    { title: "EHR", tag: "ehr", iconUrl: "/images/ehr-page.svg", icon: <EhrIcon/> },
+    { title: "Hospital", tag: "hospital", iconUrl: "/images/hospital-h.svg", icon: <HospitalIcon/> },
+    { title: "Clinicians", tag: "clinicians", iconUrl: "/images/clinicians.svg", icon: <CliniciansIcon/> },
 ]
 
 const fakeCards = [
@@ -220,7 +221,7 @@ export default function Main() {
                             {
                                 tags.map((t, i) => <div key={i} className={`search-tag ${selectedTags.includes(t.tag) ? 'active' : ''}`}
                                     onClick={() => onTagClick(t.tag)}>
-                                    <img src={t.iconUrl} alt="page icon" /> <span>{t.title}</span>
+                                    {t.icon} <span>{t.title}</span>
                                 </div>)
                             }
                         </div>
