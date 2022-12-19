@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/api-direct-react-v2/static/css/main.c92026cf.css",
-    "main.js": "/api-direct-react-v2/static/js/main.744c8cf6.js",
-    "static/media/details-hero-bg.png": "/api-direct-react-v2/static/media/details-hero-bg.47719e5d37097384cf04.png",
-    "static/media/hero-l-bg.png": "/api-direct-react-v2/static/media/hero-l-bg.ed0ac1119bf83f4cee12.png",
-    "static/media/form-r-bg.png": "/api-direct-react-v2/static/media/form-r-bg.edd22e1fca9af79c1dfb.png",
-    "static/media/hero-r-bg.png": "/api-direct-react-v2/static/media/hero-r-bg.edd22e1fca9af79c1dfb.png",
-    "index.html": "/api-direct-react-v2/index.html",
-    "main.c92026cf.css.map": "/api-direct-react-v2/static/css/main.c92026cf.css.map",
-    "main.744c8cf6.js.map": "/api-direct-react-v2/static/js/main.744c8cf6.js.map"
+    "main.css": "/static/css/main.4070fcba.css",
+    "main.js": "/static/js/main.744c8cf6.js",
+    "static/media/details-hero-bg.png": "/static/media/details-hero-bg.47719e5d37097384cf04.png",
+    "static/media/hero-l-bg.png": "/static/media/hero-l-bg.ed0ac1119bf83f4cee12.png",
+    "static/media/form-r-bg.png": "/static/media/form-r-bg.edd22e1fca9af79c1dfb.png",
+    "static/media/hero-r-bg.png": "/static/media/hero-r-bg.edd22e1fca9af79c1dfb.png",
+    "index.html": "/index.html",
+    "main.4070fcba.css.map": "/static/css/main.4070fcba.css.map",
+    "main.744c8cf6.js.map": "/static/js/main.744c8cf6.js.map"
   },
   "entrypoints": [
-    "static/css/main.c92026cf.css",
+    "static/css/main.4070fcba.css",
     "static/js/main.744c8cf6.js"
   ]
 }
