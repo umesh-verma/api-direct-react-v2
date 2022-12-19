@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { CliniciansIcon, EhrIcon, GridIcon, HospitalIcon, ListIcon } from '../../components/TextTags';
 import "../styles/global-n.css";
 import Card from './comp-api-card';
@@ -192,7 +193,7 @@ export default function Main() {
                     <br />
                     <p className="fsxl20 text-white">
                         Browse our selection of avaliable APIs or if you would like <br />
-                        to have yours listed, request it <a href="#" style={{ color: "var(--primary-3)", textDecoration: "none" }}>here.</a>
+                        to have yours listed, request it <Link to="upload" className='text-primary-3 imp' style={{ textDecoration: "none" }}>here.</Link>
                     </p>
                 </div>
                 <br />

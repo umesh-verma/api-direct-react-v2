@@ -50,6 +50,9 @@ main > * {
 .text-primary-3 {
     color: var(--primary-3);
 }
+.text-primary-3.imp {
+    color: var(--primary-3) !important;
+}
 .text-primary-4 {
     color: var(--primary-4);
 }

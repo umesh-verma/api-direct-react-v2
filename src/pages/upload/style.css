@@ -129,6 +129,23 @@ div#form-tabs .q-hold .form-control option {
 }
 
 
+section#upload .form-btn {
+    font-weight: 500;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 0.4rem 1.5rem;
+    border-radius: 5px;
+}
+section#upload .form-btn.next {
+    background-color: var(--primary-3);
+}
+section#upload .form-btn.back {
+    background-color: rgba(13, 155, 156, 0.5);
+}
+
+
+
 @media (width > 1400px) {
     section#upload .form-wrap #form-tabs {
         display: flex;
