@@ -32,7 +32,7 @@
 
 .hero .holder .image {
     width: 315px;
-    background-image: url('/public/images/hero_r_bg.png');
+    background-image: url('https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/Api%20Direct%20Version%202%20Resources/ReactApiImg/hero_r_bg.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -622,3 +622,4 @@ a {
     bottom: 1.5rem;
     left: 75%;
 }
+

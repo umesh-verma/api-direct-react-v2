@@ -13,16 +13,21 @@ initResouceMap();
 
 export default function Main() {
 
+
+
   const [data, setData] = useState({
     name: "", publisher: "", firstRelease: "", latestRelease: "",
-    callsCount: "", documentation: true, currentVersion: "",
+    callsCount: "", documentation: "", currentVersion: "",
     type: "", tools: "", dataFormats: "",
-    fhirCompliant: false, nonFhirEndpoints: "", sandbox: false,
-    databaseType: "", otherConnection: "", openApi: false,
-    openPricing: false, contactName: "", email: ""
+    fhirCompliant: "", nonFhirEndpoints: "", sandbox: "",
+    databaseType: "", otherConnection: "", openApi: "",
+    openPricing: "", contactName: "", email: ""
   });
 
   const [fhirResTitle, setFhirResTitle] = useState([]);
+  const [prevTitle, setPrevTitle] = useState('');
+
+  const helpRef = useRef();
 
   function handleFhirResTitleChange({ target }) {
     const { name } = target;
@@ -61,9 +66,17 @@ export default function Main() {
 
   function handleBasicFormSubmit(e) {
     e.preventDefault();
-    console.log(e.target);
-    const form = document.forms[e.target];
-    console.log(new FormData(form));
+    handleNext('BASIC');
+  }
+
+  function handleResourceFormSubmit (e) {
+    e.preventDefault();
+    handleNext('ENDPOINT');
+  }
+
+  function handleAccessFormSubmit (e) {
+    e.preventDefault();
+
   }
 
   function handleInputChanges({ target }) {
@@ -80,6 +93,13 @@ export default function Main() {
       setData(prev => ({ ...prev, [name]: modified }));
     }
   }
+
+  const topRef = useRef();
+  useEffect(() => {
+    topRef.current.scrollIntoView()
+    // console.log(fhirResTitle);
+    // console.log(fhirResList);
+  }, [])
 
   useEffect(() => {
     console.log(data);
@@ -113,7 +133,7 @@ export default function Main() {
 
   return (
     <main>
-      <section id='upload'>
+      <section id='upload' ref={topRef}>
         <div className="container d-flex align-items-center justify-content-between">
           <div className='text-content'>
             <h1 className="fsxl48 font-mont fw-600 text-white">
@@ -139,15 +159,15 @@ export default function Main() {
               </p>
             </div>
           </div>
-          <div className="img-content d-flex">
+          <div className="img-content">
             <div className='mt-auto w-100 mb-4'>
-              <img src="/images/plug-bot.png" alt="Alphabot Plug" width="100%" />
+              <img src="https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/Api%20Direct%20Version%202%20Resources/ReactApiImg/plug-bot.png" alt="Alphabot Plug" width="100%" />
             </div>
           </div>
         </div>
         <br />
         <div className="container">
-          <div className="title not-xl">
+          <div className="title px-2 not-xl">
             <h5 className="fsxl24 font-mont fw-600 text-white">
               Registration Form
             </h5>
@@ -182,6 +202,31 @@ export default function Main() {
                     type="button" role="tab" aria-controls="nav-contact" aria-selected="false" ref={navAccess} >
                     Accessibility
                   </button>
+                  <div className='text-white xl-only'>
+                    <div className="need-help" ref={helpRef}>
+                      <div className='d-flex justify-content-between'>
+                        <h6 className="fsxl-m16 font-mont fw-600 text-white">
+                          Need help?
+                        </h6>
+                        <svg onClick={() => {helpRef.current.style.display = 'none'}} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <mask id="mask0_1662_8148" style={{maskType:"alpha"}} maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+                            <rect width="20" height="20" fill="#D9D9D9" />
+                          </mask>
+                          <g mask="url(#mask0_1662_8148)">
+                            <path d="M5.33366 15.8332L4.16699 14.6665L8.83366 9.99984L4.16699 5.33317L5.33366 4.1665L10.0003 8.83317L14.667 4.1665L15.8337 5.33317L11.167 9.99984L15.8337 14.6665L14.667 15.8332L10.0003 11.1665L5.33366 15.8332Z" fill="white" />
+                          </g>
+                        </svg>
+
+                      </div>
+                      <p className="font-lucida fsxl-l14">
+                        Don’t have all the information
+                        to hand, or just need help?
+                      </p>
+                      <button className='contact'>
+                        Contact us
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </nav>
               <div className="tab-content" id="nav-tabContent">
@@ -255,6 +300,7 @@ export default function Main() {
                         onChange={handleSelectChange} value={data.documentation}
                         className='form-control form-select' id="doc"
                       >
+                        <option value="">- Select -</option>
                         <option value={true}>Yes</option>
                         <option value={false}>No</option>
                       </select>
@@ -273,6 +319,7 @@ export default function Main() {
                       <select name="type" value={data.type} onChange={handleSelectChange}
                         className='form-control form-select' id="type"
                       >
+                        <option value="">- Select -</option>
                         <option value="SOAP">SOAP</option>
                         <option value="SOAP">REST</option>
                       </select>
@@ -363,7 +410,7 @@ export default function Main() {
                     </div>
 
                     <div className="d-flex w-100 justify-content-end">
-                      <button className='form-btn next' onClick={() => handleNext('BASIC')} >Next</button>
+                      <button className='form-btn next' type='submit' >Next</button>
                     </div>
 
                   </form>
@@ -376,12 +423,13 @@ export default function Main() {
                       API Resource/Endpoints
                     </h5>
                   </div>
-                  <div className='d-flex flex-column'>
+                  <form onSubmit={handleResourceFormSubmit} className='d-flex flex-column'>
                     <div className="q-hold">
                       <label htmlFor="FHIR">Is the API FHIR compliant?</label>
                       <select name="fhirCompliant" className='form-control form-select' id="FHIR"
                         value={data.fhirCompliant} onChange={handleSelectChange}
                       >
+                        <option value="">- Select -</option>
                         <option value={true}>Yes</option>
                         <option value={false}>No</option>
                       </select>
@@ -392,7 +440,7 @@ export default function Main() {
                           {
                             Object.keys(resources).map((r, i) => {
                               return (
-                                <div className="form-check w-50" key={i}>
+                                <div className="form-check col-12 col-md-6 col-lg-4" key={i}>
                                   <input className="form-check-input" type="checkbox" name={r}
                                     onChange={handleFhirResTitleChange}
                                     value={r} id={r + "CHECK"}
@@ -407,13 +455,13 @@ export default function Main() {
                         </div>
                         {
                           fhirResTitle.map((t, i) => {
-                            return <div key={i}>
+                            return <div key={i} className='resource-group'>
                               <div className="fsxl-m16 font-mont fw-600">FHIR Resource Group - {t}</div>
                               <div className="d-flex flex-wrap mb-2">
                                 {
                                   resources[t].map((r, j) => {
                                     return (
-                                      <div className="form-check w-50" key={j}>
+                                      <div className="form-check mx-2" key={j}>
                                         <input className="form-check-input" type="checkbox" name={t}
                                           onChange={handleFhirResListChange}
                                           value={r} id={r + "CHECK"}
@@ -445,9 +493,9 @@ export default function Main() {
 
                     <div className="d-flex w-100 justify-content-between">
                       <button className='form-btn back' onClick={() => handleBack('ENDPOINT')} >Back</button>
-                      <button className='form-btn next' onClick={() => handleNext('ENDPOINT')} >Next</button>
+                      <button className='form-btn next' type='submit'>Next</button>
                     </div>
-                  </div>
+                  </form>
                 </div>
 
 
@@ -457,12 +505,13 @@ export default function Main() {
                       Accessibility
                     </h5>
                   </div>
-                  <div className='d-flex flex-column rg-1'>
+                  <form onSubmit={handleAccessFormSubmit} className='d-flex flex-column rg-1'>
                     <div className="q-hold">
                       <label htmlFor="sandbox">Is a secured sandbox avaliable?</label>
                       <select name="sandbox" className='form-control form-select' id="sandbox"
                         value={data.sandbox} onChange={handleCheckboxChange}
                       >
+                        <option value="">- Select -</option>
                         <option value={true}>Yes</option>
                         <option value={false}>No</option>
                       </select>
@@ -517,6 +566,7 @@ export default function Main() {
                         value={data.openApi} onChange={handleSelectChange}
                         id="sandbox"
                       >
+                        <option value="">- Select -</option>
                         <option value={true}>Open</option>
                         <option value={false}>Partner</option>
                       </select>
@@ -528,6 +578,7 @@ export default function Main() {
                           <select name="openPricing" className='form-control form-select' id="sandbox"
                             value={data.openPricing} onChange={handleSelectChange}
                           >
+                            <option value="">- Select -</option>
                             <option value={true}>Open</option>
                             <option value={false}>Partner</option>
                           </select>
@@ -535,9 +586,9 @@ export default function Main() {
                     }
                     <div className="d-flex w-100 justify-content-between">
                       <button className='form-btn back' onClick={() => handleBack('ACCESS')} >Back</button>
-                      <button className='form-btn next' onClick={() => handleNext('ACCESS')} >Submit</button>
+                      <button className='form-btn next' type='submit'>Submit</button>
                     </div>
-                  </div>
+                  </form>
 
                 </div>
               </div>
@@ -547,4 +598,14 @@ export default function Main() {
       </section>
     </main>
   )
+}
+
+
+function checkBasicDetails (data) {
+  // const keys = [
+  //   "name" ,"publisher" ,"firstRelease" ,"latestRelease","callsCount",
+  //   "documentation" ,"currentVersion","type" ,"tools" ,"dataFormats"
+  // ];
+  console.log(data);
+  return Object.keys(data).every(k => data[k] !== "");
 }

@@ -1,5 +1,5 @@
 section#upload {
-    background-image: url('/public/images/details-hero-bg.png');
+    background-image: url('https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/Api%20Direct%20Version%202%20Resources/ReactApiImg/details-hero-bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -10,10 +10,11 @@ section#upload div.text-content {
     padding-top: 4rem;
 }
 section#upload div.img-content { 
-    background-image: url('/public/images/form-r-bg.png');
+    background-image: url('https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/Api%20Direct%20Version%202%20Resources/ReactApiImg/form-r-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
     width: 330px;
+    display: flex;
     height: 515px;
 }
 
@@ -83,7 +84,7 @@ div#form-tabs .q-grid {
     row-gap: 1.3rem;
 }
 div#form-tabs #nav-basic .q-hold {
-    width: 47%;
+    width: 46%;
 }
 div#form-tabs #nav-resource > .d-flex {
     row-gap: 1rem;
@@ -102,6 +103,10 @@ div#form-tabs .q-hold .form-check-input {
     outline: none;
     color: #fff;
     transition: 0.2s ease;
+}
+div#form-tabs .q-hold .form-control {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
 }
 
 div#form-tabs .q-hold .form-check-input:focus-within,
@@ -189,6 +194,30 @@ section#upload .form-btn.back {
     }
 }
 
+@media (481px < width < 768px) {
+    div#form-tabs #nav-tab .nav-link {
+        width: 33.33%;
+    }
+}
+
 @media (width < 768px) {
+    div#form-tabs .tab-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    div#form-tabs #nav-basic .q-hold {
+        width: 100%;
+    }
+    section#upload div.text-content {
+        width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    section#upload div.img-content {
+        display: none;
+    }
+    div#form-tabs  .nav-tabs {
+        overflow-x: scroll;
+    }
     
 }

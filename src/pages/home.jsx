@@ -24,7 +24,7 @@ export default function Home() {
             </p>
           </div>
           <div className="image debug">
-           <img src="./images/hero_r_bot.png" alt="" />
+           <img src="https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/Api%20Direct%20Version%202%20Resources/ReactApiImg/hero_r_bot.png" alt="" />
           </div>
         </div>
       </section>

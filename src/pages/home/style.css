@@ -15,7 +15,7 @@ section.hero>.container-fluid {
 
 section.hero .l-bg {
     min-height: 80vh;
-    background-image: url('/public/images/hero-l-bg.png');
+    background-image: url('https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/Api%20Direct%20Version%202%20Resources/ReactApiImg/hero-l-bg.png');
     background-repeat: no-repeat;
     background-position-x: 10%;
     margin-left: 5%;
@@ -29,7 +29,7 @@ section.hero .l-bg .fsxl96 {
 
 section.hero .r-bg {
     min-height: 80vh;
-    background-image: url('/public/images/hero-r-bg.png');
+    background-image: url('https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/Api%20Direct%20Version%202%20Resources/ReactApiImg/hero-r-bg.png');
     background-repeat: no-repeat;
     background-position-x: 60%;
     background-position-y: -30%;
@@ -45,7 +45,7 @@ section.hero .browse {
 }
 
 section.what .content-form {
-    background-image: url('/public/images/what-l-bg.png');
+    background-image: url('https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/Api%20Direct%20Version%202%20Resources/ReactApiImg/what-l-bg.png');
     background-repeat: no-repeat;
     padding-top: 5rem;
     background-position-y: -3rem;
@@ -103,7 +103,7 @@ section.not-got .l-hold .text-side {
 
 section.direct {
     margin-top: 3rem;
-    background-image: url('/public/images/direct-center.png');
+    background-image: url('https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/Api%20Direct%20Version%202%20Resources/ReactApiImg/direct-center.png');
     background-repeat: no-repeat;
     background-position-x: center;
     padding-top: 3rem;
@@ -386,5 +386,40 @@ section.cards {
 
     section.not-got .l-hold>div .know-form {
         width: 45%;
+    }
+}
+
+@media (width < 768px) {
+    section.cdh {
+        min-height: 70vh;
+    }
+    section .container {
+        max-width: 100vw !important;
+        overflow: hidden;
+    }
+    section.what .content-form .content{
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+    section.what .form-hold {
+        display: none;
+    }
+    section.not-got .container-fluid {
+        padding: 0;
+    }
+    section.not-got .l-hold {
+        width: 100%;
+    }
+    section.not-got .adv-space {
+        display: none;
+    }
+    section.direct .view-switch {
+        display: none;
+    }
+}
+
+@media (width < 768px) {
+    .r-bg > * {
+        display: none;
     }
 }

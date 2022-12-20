@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CliniciansIcon, EhrIcon, GridIcon, HospitalIcon, ListIcon } from '../../components/TextTags';
 import "../styles/global-n.css";
@@ -7,9 +7,9 @@ import "./style.css";
 
 
 const tags = [
-    { title: "EHR", tag: "ehr", iconUrl: "/images/ehr-page.svg", icon: <EhrIcon/> },
-    { title: "Hospital", tag: "hospital", iconUrl: "/images/hospital-h.svg", icon: <HospitalIcon/> },
-    { title: "Clinicians", tag: "clinicians", iconUrl: "/images/clinicians.svg", icon: <CliniciansIcon/> },
+    { title: "EHR", tag: "ehr", iconUrl: "/images/ehr-page.svg", icon: <EhrIcon /> },
+    { title: "Hospital", tag: "hospital", iconUrl: "/images/hospital-h.svg", icon: <HospitalIcon /> },
+    { title: "Clinicians", tag: "clinicians", iconUrl: "/images/clinicians.svg", icon: <CliniciansIcon /> },
 ]
 
 const fakeCards = [
@@ -73,9 +73,35 @@ export default function Main() {
             setSelectedTags(prev => [...prev, tag])
         }
     }
-    
+
     const scrollRef = useRef();
-    const executeScroll = () => scrollRef.current.scrollIntoView()
+    const executeScroll = () => scrollRef.current.scrollIntoView();
+
+
+    const [dimensions, setDimensions] = useState({
+        height: window.innerHeight,
+        width: window.innerWidth
+    });
+    useEffect(() => {
+        function handleResize() {
+            setDimensions({
+                height: window.innerHeight,
+                width: window.innerWidth
+            })
+
+        }
+        window.addEventListener('resize', handleResize);
+
+        return _ => {
+            window.removeEventListener('resize', handleResize);
+        }
+    });
+
+    useEffect(() => {
+        if (dimensions.width < 768) {
+            setListView(false)
+        }
+    }, [dimensions]);
 
     return (
         <main>
@@ -95,7 +121,7 @@ export default function Main() {
                         </div>
                         <div className="r-bg d-flex">
                             <div className="my-auto">
-                                <img src="./images/hero-bot.png" alt="bg-imge" width="90%" />
+                                <img src="https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/Api%20Direct%20Version%202%20Resources/ReactApiImg/hero-bot.png" alt="bg-imge" width="90%" />
                             </div>
                         </div>
                     </div>
@@ -110,7 +136,7 @@ export default function Main() {
                     <div className="text-center font-mont text-white">
                         <h3 className="fsxl32 fw-600">What is APIdirect ?</h3>
                     </div>
-                    <div className="content-form d-flex justify-content-between flex-wrap">
+                    <div className="content-form d-flex justify-content-around flex-wrap">
                         <div className="content">
                             <h5 className="fsxl24 font-mont">
                                 The library serves as a <span style={{ color: "#F8B225" }}>FREE</span> knowledge base for the
@@ -121,7 +147,7 @@ export default function Main() {
                             <br />
                             <div className="d-flex bot-n-content">
                                 <div className="plug-bot-img-hold">
-                                    <img src="./images/plug-bot.png" alt="alphabot plug" />
+                                    <img src="https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/Api%20Direct%20Version%202%20Resources/ReactApiImg/plug-bot.png" alt="alphabot plug" />
                                 </div>
                                 <div className="font-lucida plug-content text-white">
                                     <p className="fsxl-l16">
@@ -227,7 +253,7 @@ export default function Main() {
                             }
                         </div>
                         <button className='view-switch' onClick={() => setListView(prev => !prev)}>
-                            {listView ? <GridIcon/> : <ListIcon/>}
+                            {listView ? <GridIcon /> : <ListIcon />}
                             <span>
                                 {listView ? "Grid View" : "List View"}
                             </span>
@@ -236,7 +262,7 @@ export default function Main() {
                 </div>
             </section>
 
-            <section className={`cards container ${listView ? 'tile': 'grid'}`}>
+            <section className={`cards container ${listView ? 'tile' : 'grid'}`}>
                 {
                     cards.map((c, i) => <Card key={i} data={c} />)
                 }

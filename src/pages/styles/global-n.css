@@ -41,6 +41,12 @@ main > * {
   --fsl14: 14px;
 }
 
+@media (width < 1400px) {
+    .xl-only {
+        display: none;
+    }
+}
+
 .text-primary-1 {
     color: var(--primary-1);
 }
@@ -305,6 +311,28 @@ a {
 
     .know-form form input {
         font-size: 12px;
+    }
+}
+
+@media (481px < width < 768px) {
+    .fsxl96 {
+        font-size: 40px;
+        line-height: 48.7px;
+    }
+    .fsxl32 {
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .fsxl24 {
+        font-size: 16px;
+        line-height: 19px;
+    }
+}
+
+@media (width < 481px) {
+    .fsxl24 {
+        font-size: 14px;
+        line-height: 16px;
     }
 }
 

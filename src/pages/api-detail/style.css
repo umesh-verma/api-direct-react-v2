@@ -1,5 +1,5 @@
 section#api-detail {
-    background-image: url('/public/images/details-hero-bg.png');
+    background-image: url('https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/Api%20Direct%20Version%202%20Resources/ReactApiImg/details-hero-bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -113,6 +113,39 @@ section#resource-tab #nav-tab::-webkit-scrollbar {
     display: none;
 }
 
+#nav-resource .resource-group:first-child {
+    display: none;
+}
+
+.xl-only .need-help {
+    background-color: var(--primary-5);
+    padding: 1.3rem;
+    margin-right: 3rem;
+    margin-top: 2rem;
+    height: 195px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+}
+.need-help .font-lucida {
+    opacity: 50%;
+    padding-top: 1rem;
+    color: #ccc;
+}
+.need-help .contact {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: var(--primary-2);
+    color: #fff;
+    font-weight: 500;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 5px;
+    font-family: var(--font-mont);
+    margin-top: auto;
+}
+
 @media (width > 1400px) {
     section#api-detail .overview-n-form {
         display: flex;
@@ -181,6 +214,10 @@ section#resource-tab #nav-tab::-webkit-scrollbar {
 }
 
 @media (width < 768px) {
+    section#resource-tab .tab-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
     section#resource-tab  .nav-tabs {
         overflow-x: scroll;
     }
@@ -203,10 +240,7 @@ section#resource-tab #nav-tab::-webkit-scrollbar {
         padding-left: 1rem;
         padding-right: 1rem;
     }
-    section#resource-tab .tab-content {
-        padding-left: 0;
-        padding-right: 0;
-    }
+    
     section#resource-tab .tab-content #nav-profile > .d-flex {
         column-gap: 1.5rem;
     }
