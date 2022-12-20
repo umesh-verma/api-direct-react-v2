@@ -1,17 +1,13 @@
 {
   "files": {
-    "main.css": "/api-direct-react-v2/static/css/main.c92026cf.css",
-    "main.js": "/api-direct-react-v2/static/js/main.f098f857.js",
-    "static/media/details-hero-bg.png": "/api-direct-react-v2/static/media/details-hero-bg.47719e5d37097384cf04.png",
-    "static/media/hero-l-bg.png": "/api-direct-react-v2/static/media/hero-l-bg.ed0ac1119bf83f4cee12.png",
-    "static/media/form-r-bg.png": "/api-direct-react-v2/static/media/form-r-bg.edd22e1fca9af79c1dfb.png",
-    "static/media/hero-r-bg.png": "/api-direct-react-v2/static/media/hero-r-bg.edd22e1fca9af79c1dfb.png",
+    "main.css": "/api-direct-react-v2/static/css/main.50669c34.css",
+    "main.js": "/api-direct-react-v2/static/js/main.de6c93a3.js",
     "index.html": "/api-direct-react-v2/index.html",
-    "main.c92026cf.css.map": "/api-direct-react-v2/static/css/main.c92026cf.css.map",
-    "main.f098f857.js.map": "/api-direct-react-v2/static/js/main.f098f857.js.map"
+    "main.50669c34.css.map": "/api-direct-react-v2/static/css/main.50669c34.css.map",
+    "main.de6c93a3.js.map": "/api-direct-react-v2/static/js/main.de6c93a3.js.map"
   },
   "entrypoints": [
-    "static/css/main.c92026cf.css",
-    "static/js/main.f098f857.js"
+    "static/css/main.50669c34.css",
+    "static/js/main.de6c93a3.js"
   ]
 }
