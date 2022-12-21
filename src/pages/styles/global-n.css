@@ -330,6 +330,14 @@ a {
 }
 
 @media (width < 481px) {
+    .fsxl96 {
+        font-size: 40px;
+        line-height: 48.7px;
+    }
+    .fsxl32 {
+        font-size: 20px;
+        line-height: 24px;
+    }
     .fsxl24 {
         font-size: 14px;
         line-height: 16px;

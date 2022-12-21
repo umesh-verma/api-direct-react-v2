@@ -48,6 +48,8 @@ div#form-tabs #nav-tab .nav-link {
     padding-bottom: 1rem;
 }
 
+
+
 @media (width < 1399px) {
     div#form-tabs #nav-tab .nav-link.active {
         border-bottom: 2px solid #059B9C;
@@ -83,8 +85,15 @@ div#form-tabs .section-title {
 div#form-tabs .q-grid {
     row-gap: 1.3rem;
 }
-div#form-tabs #nav-basic .q-hold {
-    width: 46%;
+@media (1025px < width ) {
+    div#form-tabs #nav-basic .q-hold {
+        width: 44%;
+    }
+}
+@media (769px < width < 1024px) {
+    div#form-tabs #nav-basic .q-hold {
+        width: 46%;
+    }
 }
 div#form-tabs #nav-resource > .d-flex {
     row-gap: 1rem;
@@ -94,8 +103,8 @@ div#form-tabs #nav-contact .form-control {
     width: min(430px, 100%);
 }
 div#form-tabs .q-hold label {
-    padding-bottom: 0.5rem;
     font-size: 14px;
+    margin-bottom: 16px;
 }
 div#form-tabs .q-hold .form-control,
 div#form-tabs .q-hold .form-check-input {
@@ -105,8 +114,8 @@ div#form-tabs .q-hold .form-check-input {
     transition: 0.2s ease;
 }
 div#form-tabs .q-hold .form-control {
-    padding-top: 0.6rem;
-    padding-bottom: 0.6rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
 }
 
 div#form-tabs .q-hold .form-check-input:focus-within,
@@ -205,9 +214,7 @@ section#upload .form-btn.back {
         padding-left: 1rem;
         padding-right: 1rem;
     }
-    div#form-tabs #nav-basic .q-hold {
-        width: 100%;
-    }
+    
     section#upload div.text-content {
         width: 100%;
         padding-left: 1rem;
@@ -221,3 +228,38 @@ section#upload .form-btn.back {
     }
     
 }
+
+@media (482px < width < 768px) {
+    div#form-tabs #nav-basic .q-hold {
+        width: 100%;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
+@media (width < 481px) {
+    div#form-tabs #nav-basic .q-hold {
+        width: 100%;
+    }
+    section#upload .text-content .fsxl24 {
+        font-size: 17px;
+    }
+    section#upload .text-content .font-lucida.fsxl-l18 {
+        font-size: 13px;
+        line-height: 13px;
+    }
+    section#upload .title .fsxl24 {
+        font-size: 24px;
+    }
+    section#upload .title .fsxl-l18 {
+        font-size: 12px;
+    }
+}
+
+/* section#upload .resource-group {
+    display: none;
+}
+
+section#upload .resource-group:last-of-type {
+    display: block !important;
+} */

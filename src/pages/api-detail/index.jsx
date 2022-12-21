@@ -39,7 +39,7 @@ export default function Main() {
 
     const params = useParams();
 
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
     const [apiData, setApiData] = useState(fakeDatabase['cerner-r4']);
 
     useEffect(() => {

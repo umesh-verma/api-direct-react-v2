@@ -13,19 +13,18 @@ initResouceMap();
 
 export default function Main() {
 
-
-
   const [data, setData] = useState({
     name: "", publisher: "", firstRelease: "", latestRelease: "",
     callsCount: "", documentation: "", currentVersion: "",
     type: "", tools: "", dataFormats: "",
     fhirCompliant: "", nonFhirEndpoints: "", sandbox: "",
     databaseType: "", otherConnection: "", openApi: "",
-    openPricing: "", contactName: "", email: ""
+    openPricing: "", 
+    contactName: "", email: ""
   });
 
   const [fhirResTitle, setFhirResTitle] = useState([]);
-  const [prevTitle, setPrevTitle] = useState('');
+  // const [prevTitle, setPrevTitle] = useState('');
 
   const helpRef = useRef();
 
@@ -455,7 +454,7 @@ export default function Main() {
                         </div>
                         {
                           fhirResTitle.map((t, i) => {
-                            return <div key={i} className='resource-group'>
+                            return <div key={i} className='resource-group' style={{ display: i === fhirResTitle.length - 1 ? 'block': 'none' }} >
                               <div className="fsxl-m16 font-mont fw-600">FHIR Resource Group - {t}</div>
                               <div className="d-flex flex-wrap mb-2">
                                 {
@@ -572,7 +571,7 @@ export default function Main() {
                       </select>
                     </div>
                     {
-                      data.openApi === 'true' ? <></> :
+                      data.openApi === false ? 
                         <div className="q-hold">
                           <label htmlFor="sandbox">Is pricing open to public or only to partners?</label>
                           <select name="openPricing" className='form-control form-select' id="sandbox"
@@ -582,7 +581,8 @@ export default function Main() {
                             <option value={true}>Open</option>
                             <option value={false}>Partner</option>
                           </select>
-                        </div>
+                        </div> 
+                        : <></> 
                     }
                     <div className="d-flex w-100 justify-content-between">
                       <button className='form-btn back' onClick={() => handleBack('ACCESS')} >Back</button>

@@ -59,7 +59,7 @@ section.what .content-form .content {
     width: 705px;
 }
 
-.know-form {
+main#home .know-form {
     width: 415px;
     padding: 3rem 2.5rem;
 }
@@ -97,8 +97,11 @@ section.not-got .l-hold {
     width: 65%;
 }
 
-section.not-got .l-hold .text-side {
-    max-width: 40%;
+@media (width > 769px) {
+
+    section.not-got .l-hold .text-side {
+        max-width: 40%;
+    }
 }
 
 section.direct {
@@ -319,7 +322,7 @@ section.cards {
         width: 590px;
     }
 
-    .know-form {
+    main#home .know-form {
         width: 290px !important;
         flex-direction: column;
         padding: 1rem;
@@ -409,12 +412,78 @@ section.cards {
     }
     section.not-got .l-hold {
         width: 100%;
+        padding: 0;
     }
+    
     section.not-got .adv-space {
         display: none;
     }
     section.direct .view-switch {
         display: none;
+    }
+}
+
+@media (482px < width < 768px  ) {
+    section.not-got .l-hold .text-side {
+        width: 70%;
+        padding-left: 1.6rem;
+    }
+    section.what .content .fsxl24 {
+        font-size: 16px;
+        line-height: 19.5px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    section.what .content .bot-n-content {
+        align-items: center;
+    }
+    section.what .content .bot-n-content .fsxl-l16 {
+        font-size: 14px;
+        line-height: 14.4px;
+    }
+    section.what .content .bot-n-content .plug-bot-img-hold {
+        width: 38%;
+    }
+    section.what .content .bot-n-content .plug-bot-img-hold > img {
+        width: 100%;
+    }
+    section.what .content .bot-n-content .plug-content {
+        width: 57%;
+    }
+}
+
+@media (width < 481.98px) {
+    section.what .content .fsxl24 {
+        font-size: 16px;
+        line-height: 19.5px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    section.what .content .bot-n-content {
+        flex-direction: column-reverse;
+        align-items: center;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    section.what .content .bot-n-content .fsxl-l16 {
+        font-size: 14px;
+        line-height: 14.4px;
+    }
+
+    section.not-got .container-fluid .l-hold .d-flex {
+        flex-direction: column;
+    }
+
+    section.not-got .container-fluid .l-hold .d-flex .text-side {
+        width: 300px;
+        padding-top: 3rem;
+        text-align: center;
+    }
+    section.not-got .container-fluid .l-hold .d-flex .text-side > * {
+        padding-top: 1rem;
+    }
+    section.not-got .container-fluid .l-hold .know-form {
+        padding-top: 0;
     }
 }
 

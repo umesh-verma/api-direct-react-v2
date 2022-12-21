@@ -104,7 +104,7 @@ export default function Main() {
     }, [dimensions]);
 
     return (
-        <main>
+        <main id="home">
             <section className="cdh hero py-3">
                 <div className="container-fluid d-flex">
                     <div className="d-flex py-4 my-auto w-100">
