@@ -192,7 +192,7 @@ export default function Main() {
                         <div className="d-flex justify-content-around align-items-center">
                             <div className="text-side">
                                 <h3 className="fsxl32 font-mont text-white fw-600">
-                                    Not got an API yet? We can build you one! 😊
+                                    Not got an API yet? The team over at Alphalake Ai can build you one! 😊
                                 </h3>
                                 <p className="fsxl-l16 font-lucida text-white">
                                     Just fill in the contact form and we will be in touch soon!
