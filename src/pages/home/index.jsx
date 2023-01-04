@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from "axios";
 import { CliniciansIcon, EhrIcon, GridIcon, HospitalIcon, ListIcon } from '../../components/TextTags';
+import { baseUrl } from '../../config/constants';
 import "../styles/global-n.css";
 import Card from './comp-api-card';
 import "./style.css";
@@ -63,8 +65,20 @@ const fakeCards = [
 export default function Main() {
 
     const [selectedTags, setSelectedTags] = useState([]);
+    const [searchQuery, setSearchQuery] = useState("");
     const [listView, setListView] = useState(true);
     const [cards, setCards] = useState(fakeCards);
+
+    async function onSearchFormSubmit (e) {
+        e?.preventDefault();
+        try {
+            const { data } = await axios.get(baseUrl + `/api-cards?q=${searchQuery}&tags=${selectedTags.join(",")}`);
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 
     function onTagClick(tag) {
         if (selectedTags.includes(tag)) {
@@ -73,6 +87,10 @@ export default function Main() {
             setSelectedTags(prev => [...prev, tag])
         }
     }
+
+    useEffect(() => {
+        onSearchFormSubmit();
+    }, [selectedTags])
 
     const scrollRef = useRef();
     const executeScroll = () => scrollRef.current.scrollIntoView();
@@ -224,7 +242,7 @@ export default function Main() {
                 </div>
                 <br />
                 <div className="container">
-                    <div className="search-box d-flex">
+                    <form onSubmit={onSearchFormSubmit} className="search-box d-flex">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="mask0_1553_6033" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                                 <rect width="24" height="24" fill="#D9D9D9" />
@@ -241,8 +259,8 @@ export default function Main() {
                                 />
                             </g>
                         </svg>
-                        <input type="text" name="search" placeholder="Search our 22 APIs" />
-                    </div>
+                        <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} name="search" placeholder="Search our 22 APIs" />
+                    </form>
                     <div className="d-flex align-items-center">
                         <div className="d-flex tag-box">
                             {

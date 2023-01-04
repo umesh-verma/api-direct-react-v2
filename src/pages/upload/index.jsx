@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import "../styles/global-n.css";
 import "./style.css";
 import { resources } from "./config.js";
+import { baseUrl } from "../../config/constants.js";
+import axios from 'axios';
 
 let emptyResListMap = {};
 function initResouceMap() {
@@ -73,9 +75,17 @@ export default function Main() {
     handleNext('ENDPOINT');
   }
 
-  function handleAccessFormSubmit (e) {
+  async function handleAccessFormSubmit (e) {
     e.preventDefault();
-
+    try {
+      let r = fhirResTitle.map((t, i) => ({ title: t, items: fhirResList[t] }))
+      console.log(r);
+      await axios.post(baseUrl + '/api-cards', {...data, resources: r});
+      alert("Success");
+    } catch (error) {
+      console.log(error);
+      alert(error.message);
+    }
   }
 
   function handleInputChanges({ target }) {
@@ -508,7 +518,7 @@ export default function Main() {
                     <div className="q-hold">
                       <label htmlFor="sandbox">Is a secured sandbox avaliable?</label>
                       <select name="sandbox" className='form-control form-select' id="sandbox"
-                        value={data.sandbox} onChange={handleCheckboxChange}
+                        value={data.sandbox} onChange={handleSelectChange}
                       >
                         <option value="">- Select -</option>
                         <option value={true}>Yes</option>
@@ -525,7 +535,7 @@ export default function Main() {
                       <div className="d-flex flex-wrap">
                         <div className="form-check w-50">
                           <input className="form-check-input" type="radio" name='databaseType'
-                            onChange={handleCheckboxChange}
+                            onChange={handleInputChanges}
                             value="PERIODIC-SCHEDULED" id="PER_CHECK"
                           />
                           <label className="form-check-label" htmlFor="PER_CHECK">
@@ -534,7 +544,7 @@ export default function Main() {
                         </div>
                         <div className="form-check w-50">
                           <input className="form-check-input" type="radio" name='databaseType'
-                            onChange={handleCheckboxChange}
+                            onChange={handleInputChanges}
                             value="URL-ENCODED" id="OTH_CHECK"
                           />
                           <label className="form-check-label" htmlFor="OTH_CHECK">
@@ -543,7 +553,7 @@ export default function Main() {
                         </div>
                         <div className="form-check w-50">
                           <input className="form-check-input" type="radio" name='databaseType'
-                            onChange={handleCheckboxChange}
+                            onChange={handleInputChanges}
                             value="XML" id="REAL_CHECK"
                           />
                           <label className="form-check-label" htmlFor="REAL_CHECK">
