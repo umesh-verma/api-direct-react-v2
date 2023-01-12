@@ -2,7 +2,7 @@ export function FHIR() {
     return (
         <div className="img-tag">
             <img className="fhir-image" src="https://www.alphalake.ai/hubfs/api-connect-images/FHIR.png" />
-            <div className="font-mont fhir-text">FHIR</div>
+            <div className="font-mont fhir-text fw-600">FHIR</div>
         </div>
     )
 }
@@ -20,7 +20,7 @@ export function NonFHIR() {
     return (
         <div className="img-tag">
             <img className="fhir-image" src="https://www.alphalake.ai/hubfs/api-connect-images/FHIR.png" style={{ filter: "grayscale(100)" }} />
-            <div className="fhir-text ">Non-FHIR</div>
+            <div className="fhir-text text-white fw-600">Non-FHIR</div>
         </div>
     )
 }

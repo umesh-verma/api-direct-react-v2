@@ -1,7 +1,9 @@
 import ToolImgRenderer from "../../components/ToolImgTags.jsx";
-import ImgTagRenderer from "../../components/ImageTags";
+import ImgTagRenderer, { FHIR, NonFHIR } from "../../components/ImageTags";
 import TextTagRenderer from "../../components/TextTags";
 import { useNavigate } from "react-router-dom";
+
+const defaultLogoUrl = "https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/cerner-1.png";
 
 const fakeData = {
     title: "Cerner R4 Millenium",
@@ -19,52 +21,54 @@ const fakeData = {
     }
 }
 
-function createSlug(title) {
-    return title.trim().toLowerCase().replace(/\s+/g, '-');
+function createSlug(title, id) {
+    return title.trim().toLowerCase().replace(/\s+/g, '-')+'@'+id;
 }
 
-export default function Card({ data = fakeData }) {
+export default function Card({ data }) {
+    console.log(data);
 
     const navigate = useNavigate();
     function onCardClick () {
-        navigate('detail/'+createSlug(data.title));
+        navigate('detail/'+createSlug(data.name, data._id));
     }
 
     return (
         // <Link to={createSlug(data.title)}>
             <div className="card" onClick={onCardClick}>
                 <div className="brand-n-title">
-                    <div className="title fsxl36 text-white font-mont fw-600">{data.title}</div>
+                    <div className="title capitalize fsxl36 text-white font-mont fw-600">{data?.name}</div>
                     <div className="brand-image-hold">
-                        <img src={data.logoUrl} width="100%" />
+                        <img src={data?.logoUrl || defaultLogoUrl} width="100%" />
                     </div>
                 </div>
                 <div className="tile-right">
                     <div className="img-tags py-1">
                         {
-                            data.imgTags.map((t, i) => <ImgTagRenderer key={i} tag={t} />)
+                            data?.fhirCompliant ? <FHIR/> : <NonFHIR/>
                         }
+                        <ToolImgRenderer tag={data?.type.toUpperCase()}/>
                     </div>
                     <div className="tool-imgs d-flex py-1">
                         {
-                            data.toolTags.map((t, i) => <ToolImgRenderer key={i} tag={t} />)
+                            data.tools.map((t, i) => <ToolImgRenderer key={i} tag={t} />)
                         }
                     </div>
                 </div>
                 <div className="text-tags pt-2">
                     {
-                        data.textTags.map((t, i) => <TextTagRenderer key={i} tag={t} />)
+                        data.textTags.map((t, i) => <TextTagRenderer key={i} tag={t.toUpperCase()} />)
                     }
                 </div>
                 <div className="desc">
                     <p className="font-lucida text-white fsxl-l16">
-                        {data.description}
+                        {data?.description[0]}
                     </p>
                 </div>
                 <div className="publish">
-                    <div className="fsxl-l16">API by: <span className="value">{data.publisher.by}</span></div>
-                    <div className="fsxl-l16">Published on: <span className="value">{data.publisher.date}</span></div>
-                    <div className="fsxl-l16">Released version: <span className="value">{data.publisher.version}</span></div>
+                    <div className="fsxl-l16">API by: <span className="value">{data.publisher}</span></div>
+                    <div className="fsxl-l16">Published on: <span className="value">{new Date(data.firstRelease).toLocaleDateString()}</span></div>
+                    <div className="fsxl-l16">Released version: <span className="value">{data.currentVersion}</span></div>
                 </div>
             </div>
         // </Link>

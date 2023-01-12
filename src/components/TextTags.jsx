@@ -60,6 +60,7 @@ export default function TextTagRenderer ({ tag }) {
     switch (tag) {
         case "EHR": return <EHR/>;
         case "HOSPITALS": return <Hospitals />;
+        case "HOSPITAL": return <Hospitals />;
         case "CLINICIANS" : return <Clinicians />;
         default: return <></>;
     } 

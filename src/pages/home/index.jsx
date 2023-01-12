@@ -9,9 +9,9 @@ import "./style.css";
 
 
 const tags = [
-    { title: "EHR", tag: "ehr", iconUrl: "/images/ehr-page.svg", icon: <EhrIcon /> },
-    { title: "Hospital", tag: "hospital", iconUrl: "/images/hospital-h.svg", icon: <HospitalIcon /> },
-    { title: "Clinicians", tag: "clinicians", iconUrl: "/images/clinicians.svg", icon: <CliniciansIcon /> },
+    { title: "EHR", tag: "EHR", iconUrl: "/images/ehr-page.svg", icon: <EhrIcon /> },
+    { title: "Hospital", tag: "Hospital", iconUrl: "/images/hospital-h.svg", icon: <HospitalIcon /> },
+    { title: "Clinicians", tag: "Clinicians", iconUrl: "/images/clinicians.svg", icon: <CliniciansIcon /> },
 ]
 
 const fakeCards = [
@@ -62,23 +62,51 @@ const fakeCards = [
     }
 ]
 
+function matchAtleastOne (arr1 = [], arr2 = []) {
+    for (let index = 0; index < arr1.length; index++) {
+        if (arr2.includes(arr1[index])){
+            return true;
+        }
+    }
+    return false;
+}
+
 export default function Main() {
 
     const [selectedTags, setSelectedTags] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
     const [listView, setListView] = useState(true);
-    const [cards, setCards] = useState(fakeCards);
+    const [allCards, setAllCards] = useState([]);
+    const [cards, setCards] = useState([]);
 
     async function onSearchFormSubmit (e) {
         e?.preventDefault();
         try {
             const { data } = await axios.get(baseUrl + `/api-cards?q=${searchQuery}&tags=${selectedTags.join(",")}`);
-            console.log(data);
+            setAllCards(data.data);
+            setCards(data.data);
         } catch (error) {
             console.log(error);
         }
     }
 
+    useEffect(() => {onSearchFormSubmit()}, []);
+
+    useEffect(() => {
+        if(searchQuery) {
+            let regex = new RegExp(searchQuery, 'i');
+            let temp = allCards.filter(c => regex.test(c.name));
+            console.log(temp);
+            setCards(temp);
+        } else {
+            setCards(allCards);
+        }
+        // onSearchFormSubmit();
+    }, [searchQuery])
+
+    function onSearchQueryChange (e) {
+        setSearchQuery(e.target.value);
+    }
 
     function onTagClick(tag) {
         if (selectedTags.includes(tag)) {
@@ -89,7 +117,12 @@ export default function Main() {
     }
 
     useEffect(() => {
-        onSearchFormSubmit();
+        if(selectedTags.length) {
+            let temp = allCards.filter(c => matchAtleastOne(c.textTags, selectedTags));
+            setCards(temp);
+        } else {
+            setCards(allCards);
+        }
     }, [selectedTags])
 
     const scrollRef = useRef();
@@ -120,6 +153,40 @@ export default function Main() {
             setListView(false)
         }
     }, [dimensions]);
+
+    const [infoForm, setInfoForm] = useState({ email: "", name: "" });
+    const [buildForm, setBuildForm] = useState({ email: "", name: "" });
+    function onInfoFormChange ({target}) {
+        const { name, value } = target;
+        setInfoForm(prev => ({...prev, [name]: value}))
+    }
+
+    function onBuildFormChange ({target}) {
+        const { name, value } = target;
+        setBuildForm(prev => ({...prev, [name]: value}))
+    }
+
+    async function onInfoFormSubmit (e) {
+        try {
+            e.preventDefault();
+            await axios.post(baseUrl+'/info', infoForm);
+            alert("Thanks for the help. We'll contact you soon.");
+        } catch (error) {
+            console.log(error);
+            alert("Oops! An error occured. Please try again after sometime.");
+        }
+    }
+
+    async function onBuildFormSubmit (e) {
+        try {
+            e.preventDefault();
+            await axios.post(baseUrl+'/build', buildForm);
+            alert("Build request registered. We'll contact you soon.");
+        } catch (error) {
+            console.log(error);
+            alert("Oops! An error occured. Please try again after sometime.");
+        }
+    }
 
     return (
         <main id="home">
@@ -193,9 +260,9 @@ export default function Main() {
                                         be in touch soon!
                                     </p>
                                 </div>
-                                <form>
-                                    <input type="text" name="name" placeholder="Firstname Surname" />
-                                    <input type="email" name="email" placeholder="Work Email" />
+                                <form onSubmit={onInfoFormSubmit}>
+                                    <input type="text" name="name" value={infoForm.name} onChange={onInfoFormChange} placeholder="Firstname Surname" />
+                                    <input type="email" name="email" value={infoForm.email} onChange={onInfoFormChange} placeholder="Work Email" />
                                     <input type="submit" value="Submit" />
                                 </form>
                             </div>
@@ -217,9 +284,9 @@ export default function Main() {
                                 </p>
                             </div>
                             <div className="know-form font-mont">
-                                <form>
-                                    <input type="text" name="name" placeholder="Firstname Surname" />
-                                    <input type="email" name="email" placeholder="Work Email" />
+                                <form onSubmit={onBuildFormSubmit}>
+                                    <input type="text" name="name" value={buildForm.name} onChange={onBuildFormChange} placeholder="Firstname Surname" />
+                                    <input type="email" name="email" value={buildForm.email} onChange={onBuildFormChange} placeholder="Work Email" />
                                     <input type="submit" value="Submit" />
                                 </form>
                             </div>
@@ -242,7 +309,7 @@ export default function Main() {
                 </div>
                 <br />
                 <div className="container">
-                    <form onSubmit={onSearchFormSubmit} className="search-box d-flex">
+                    <div className="search-box d-flex">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="mask0_1553_6033" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                                 <rect width="24" height="24" fill="#D9D9D9" />
@@ -259,8 +326,8 @@ export default function Main() {
                                 />
                             </g>
                         </svg>
-                        <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} name="search" placeholder="Search our 22 APIs" />
-                    </form>
+                        <input type="text" value={searchQuery} onChange={onSearchQueryChange} name="search" placeholder={`Search our ${allCards.length} APIs`} />
+                    </div>
                     <div className="d-flex align-items-center">
                         <div className="d-flex tag-box">
                             {
@@ -281,6 +348,9 @@ export default function Main() {
             </section>
 
             <section className={`cards container ${listView ? 'tile' : 'grid'}`}>
+                {
+                    cards.length ? <></> : <p className='font-lucida text-white fsxl24'>No cards found ...</p>
+                }
                 {
                     cards.map((c, i) => <Card key={i} data={c} />)
                 }

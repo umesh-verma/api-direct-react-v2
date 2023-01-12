@@ -146,6 +146,18 @@ section#resource-tab #nav-tab::-webkit-scrollbar {
     margin-top: auto;
 }
 
+#nav-home .endpoint-tag ,
+#nav-contact .endpoint-tag {
+    background-color: var(--primary-4);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 20px;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    color: #fff;
+    font-family: var(--font-lucida);
+}
+
 @media (width > 1400px) {
     section#api-detail .overview-n-form {
         display: flex;

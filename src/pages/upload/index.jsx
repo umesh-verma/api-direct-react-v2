@@ -21,7 +21,7 @@ export default function Main() {
     type: "", tools: "", dataFormats: "",
     fhirCompliant: "", nonFhirEndpoints: "", sandbox: "",
     databaseType: "", otherConnection: "", openApi: "",
-    openPricing: "", 
+    openPricing: true, 
     contactName: "", email: ""
   });
 
@@ -330,7 +330,7 @@ export default function Main() {
                       >
                         <option value="">- Select -</option>
                         <option value="SOAP">SOAP</option>
-                        <option value="SOAP">REST</option>
+                        <option value="REST">REST</option>
                       </select>
                     </div>
 
@@ -494,7 +494,7 @@ export default function Main() {
                             provide a link to documentation or list in the text box provided.
                           </label>
                           <textarea name="nonFhirEndpoints" className='form-control'
-                            rows="3" placeholder='Type list here'
+                            rows="3" placeholder='Type list here (comma separated)'
                             value={data.nonFhirEndpoints} onChange={handleInputChanges}
                           ></textarea>
                         </div>
