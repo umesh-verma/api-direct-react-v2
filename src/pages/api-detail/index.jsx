@@ -3,39 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { baseUrl } from '../../config/constants';
 import { useParams } from 'react-router-dom';
 import TextTagRenderer from '../../components/TextTags';
+import ToolImgRenderer from '../../components/ToolImgTags';
 import "../styles/global-n.css";
 import "./style.css";
-
-// const fakeDatabase = {
-//     'cerner-r4': {
-//         title: "Cerner R4",
-//         image: "https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/cerner-1.png",
-//         tags: ["EHR", "HOSPITALS", "CLINICIANS"],
-//         description: `Cerner Ignite APIs are cloud-based allowing for rapid,
-//         agile deployment of future updates or enhancements.
-//         It also simplifies implementation of the APIs for healthcare
-//         providers because the ontology mapping process is centralized,
-//         which requires less effort than when performed on a per-deployment
-//         basis.`,
-//         publish: {
-//             by: "Cerner",
-//             date: "xx/xx/xx",
-//             version: "xx.xx.alpha"
-//         },
-//         imgTags: ["FHIR", "WORKATO"],
-//         devResources: {
-//             documentationUrl: "",
-//             tooling: "",
-//             wrapper: ""
-//         },
-//         accessibility: {
-//             type: "Partner-only",
-//             desc: "Pricing options in public domain, become a partner here.",
-//             tags: ["Documentation", "Open Sandbox"],
-//             remarks: "Documentation and sandbox only available to partners"
-//         }
-//     }
-// }
 
 const fakeDatabase = {
     'cerner-r4': {
@@ -137,7 +107,7 @@ export default function Main() {
                     </div>
                     <div className="grid-center pt-4">
                         <div className="api-logo">
-                            <img src={apiData.logoUrl || "https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/cerner-1.png"}
+                            <img src={apiData.logoUrl}
                                 alt="api logo" width='100%' />
                         </div>
                         <div className="api-title">
@@ -165,7 +135,7 @@ export default function Main() {
                             <br />
                             <div className="publish font-mont">
                                 <div className="fsxl-l16">Publisher: <span className="value">{apiData.publisher}</span></div>
-                                <div className="fsxl-l16">Published on: <span className="value">{new Date(apiData.firstRelease).toLocaleDateString()}</span></div>
+                                <div className="fsxl-l16">Published on: <span className="value">{apiData.firstRelease}</span></div>
                                 <div className="fsxl-l16">Release Version: <span className="value">{apiData.currentVersion}</span></div>
                             </div>
                             <div className="w-100 d-flex mt-4">
@@ -173,7 +143,7 @@ export default function Main() {
                                     <h6 className="fsxl20 text-white font-mont fw-600 pb-2">
                                         Developer Resources
                                     </h6>
-                                    <a href="#" className="fsxl-m16 fw-600 o-08 text-white font-mont">
+                                    <a href={apiData.documentationLink || "#"} className="fsxl-m16 fw-600 o-08 text-white font-mont">
                                         <span>Documentation</span>
                                         <span className="px-2"></span>
                                         <img src="/images/open_in_new.svg" alt="open in new" width='20px' />
@@ -183,19 +153,13 @@ export default function Main() {
                                             <h6 className="fsxl-m16 fw-600 o-08 text-white font-mont">
                                                 Doc Tooling:
                                             </h6>
-                                            <div className="tool-imgs d-flex py-1">
-                                                <img src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/githubr.svg"
-                                                    alt="github logo" />
-                                            </div>
+                                            <ToolImgRenderer tag={apiData.docTooling} />
                                         </div>
                                         <div className="w-50">
                                             <h6 className="fsxl-m16 fw-600 o-08 text-white font-mont">
                                                 Wrapper:
                                             </h6>
-                                            <div className="tool-imgs d-flex py-1">
-                                                <img src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/Swagger.svg"
-                                                    alt="swagger logo" />
-                                            </div>
+                                            <ToolImgRenderer tag={apiData.wrapper} />
                                         </div>
                                     </div>
                                 </div>
@@ -305,150 +269,37 @@ export default function Main() {
                             apiData.fhirCompliant ?
                         <div className="d-flex flex-wrap justify-content-center">
                             {
-                                resources.map((pr, id) => (
-                                    <div className="rs-card-wrap" key={id}>
-                                        {
-                                            pr.map((r, i) => (
-                                                <div className="rs-card" key={i}>
-                                                    <div className="header">
-                                                        {r.title}
-                                                    </div>
-                                                    <ul>
-                                                        {
-                                                            r.items.map((it, idx) => <ul key={idx}>{it}</ul>)
-                                                        }
-                                                    </ul>
-                                                </div>
-                                            ))
-                                        }
+                                // resources.map((pr, id) => (
+                                //     <div className="rs-card-wrap" key={id}>
+                                //         {
+                                //             pr.map((r, i) => (
+                                //                 <div className="rs-card" key={i}>
+                                //                     <div className="header">
+                                //                         {r.title}
+                                //                     </div>
+                                //                     <ul>
+                                //                         {
+                                //                             r.items.map((it, idx) => <ul key={idx}>{it}</ul>)
+                                //                         }
+                                //                     </ul>
+                                //                 </div>
+                                //             ))
+                                //         }
+                                //     </div>
+                                // ))
+                                apiData.resources.map((r, i) => (
+                                    <div className="rs-card" key={i}>
+                                        <div className="header">
+                                            {r.title}
+                                        </div>
+                                        <ul>
+                                            {
+                                                r.items.map((it, idx) => <ul key={idx}>{it}</ul>)
+                                            }
+                                        </ul>
                                     </div>
                                 ))
                             }
-                            <div className="rs-card-wrap">
-                                <div className="rs-card">
-                                    <div className="header">
-                                        Conformance
-                                    </div>
-                                    <ul>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                    </ul>
-                                </div>
-                                <div className="rs-card">
-                                    <div className="header">
-                                        Conformance
-                                    </div>
-                                    <ul>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="rs-card-wrap">
-                                <div className="rs-card">
-                                    <div className="header">
-                                        Conformance
-                                    </div>
-                                    <ul>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                    </ul>
-                                </div>
-                                <div className="rs-card">
-                                    <div className="header">
-                                        Conformance
-                                    </div>
-                                    <ul>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                    </ul>
-                                </div>
-                                <div className="rs-card">
-                                    <div className="header">
-                                        Conformance
-                                    </div>
-                                    <ul>
-                                        <li>Lorem Ipsum</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="rs-card-wrap">
-                                <div className="rs-card">
-                                    <div className="header">
-                                        Conformance
-                                    </div>
-                                    <ul>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                    </ul>
-                                </div>
-                                <div className="rs-card">
-                                    <div className="header">
-                                        Conformance
-                                    </div>
-                                    <ul>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="rs-card-wrap">
-                                <div className="rs-card">
-                                    <div className="header">
-                                        Conformance
-                                    </div>
-                                    <ul>
-                                        <li>Lorem Ipsum</li>
-                                    </ul>
-                                </div>
-                                <div className="rs-card">
-                                    <div className="header">
-                                        Conformance
-                                    </div>
-                                    <ul>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="rs-card-wrap">
-                                <div className="rs-card">
-                                    <div className="header">
-                                        Conformance
-                                    </div>
-                                    <ul>
-                                        <li>Lorem Ipsum</li>
-                                    </ul>
-                                </div>
-                                <div className="rs-card">
-                                    <div className="header">
-                                        Conformance
-                                    </div>
-                                    <ul>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                        <li>Lorem Ipsum</li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div> : "No FHIR Resources available"
                         }
 

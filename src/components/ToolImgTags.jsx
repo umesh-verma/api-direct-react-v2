@@ -1,3 +1,5 @@
+import { WorkatoNoCode } from "./ImageTags";
+
 export function Github () {
     return <img src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/githubr.svg" alt="github logo" />
 }
@@ -17,6 +19,7 @@ export function RestApi () {
 export default function ToolImgRenderer ({ tag }) {
     switch (tag) {
         case 'GITHUB': return <Github/>;
+        case 'WORKATO': return <WorkatoNoCode/>;
         case 'SWAGGER': return <Swagger/>;
         case 'UPLOAD-TO': return <UploadIo/>;
         case 'UPLOAD-IO': return <UploadIo/>;

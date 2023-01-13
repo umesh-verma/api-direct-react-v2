@@ -65,12 +65,59 @@ export function CliniciansIcon() {
     )
 }
 
+export function Workflow() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/App-icon.png"/>
+            <div className="tag-text">Workflow Management</div>
+        </div>
+    )
+}
+
+export function EPR() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/App-icon.png"/>
+            <div className="tag-text">EPR</div>
+        </div>
+    )
+}
+
+export function IntegratedCares() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/IntegratedCares.png"/>
+            <div className="tag-text">IntegratedCare</div>
+        </div>
+    )
+}
+
+export function NationalSystems() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/National-System-icon.png"/>
+            <div className="tag-text">NationalSystem</div>
+        </div>
+    )
+}
+
 export default function TextTagRenderer ({ tag }) {
     switch (tag) {
         case "EHR": return <EHR/>;
         case "HOSPITALS": return <Hospitals />;
         case "HOSPITAL": return <Hospitals />;
         case "CLINICIANS" : return <Clinicians />;
+        case "CLINICIAN" : return <Clinicians />;
+        case "WORKFLOW": return <Workflow/>;
+        case "EPR": return <EPR/>;
+        case "INTEGRATED-CARES": return <IntegratedCares/>;
+        case "INTEGRATED-CARE": return <IntegratedCares/>;
+        case "INTEGRATEDCARES": return <IntegratedCares/>;
+        case "INTEGRATEDCARE": return <IntegratedCares/>;
+        case "NATIONALSYSTEM": return <NationalSystems/>;
+        case "NATIONAL-SYSTEM": return <NationalSystems/>;
+        case "NATIONALSYSTEMS": return <NationalSystems/>;
+        case "NATIONAL-SYSTEMS": return <NationalSystems/>;
         default: return <></>;
     } 
 }

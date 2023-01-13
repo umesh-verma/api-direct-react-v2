@@ -96,7 +96,6 @@ export default function Main() {
         if(searchQuery) {
             let regex = new RegExp(searchQuery, 'i');
             let temp = allCards.filter(c => regex.test(c.name));
-            console.log(temp);
             setCards(temp);
         } else {
             setCards(allCards);
@@ -352,7 +351,7 @@ export default function Main() {
                     cards.length ? <></> : <p className='font-lucida text-white fsxl24'>No cards found ...</p>
                 }
                 {
-                    cards.map((c, i) => <Card key={i} data={c} />)
+                    cards.map((c, i) => <Card key={i} data={c} listView={listView} />)
                 }
             </section>
 

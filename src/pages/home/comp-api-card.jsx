@@ -25,8 +25,7 @@ function createSlug(title, id) {
     return title.trim().toLowerCase().replace(/\s+/g, '-')+'@'+id;
 }
 
-export default function Card({ data }) {
-    console.log(data);
+export default function Card({ data, listView }) {
 
     const navigate = useNavigate();
     function onCardClick () {
@@ -57,17 +56,20 @@ export default function Card({ data }) {
                 </div>
                 <div className="text-tags pt-2">
                     {
-                        data.textTags.map((t, i) => <TextTagRenderer key={i} tag={t.toUpperCase()} />)
+                        data.textTags.slice(0,3).map((t, i) => <TextTagRenderer key={i} tag={t.toUpperCase()} />)
                     }
                 </div>
                 <div className="desc">
                     <p className="font-lucida text-white fsxl-l16">
-                        {data?.description[0]}
+                        { listView ? 
+                            data?.description[0].split(" ").slice(0, 20).join(" ")+"..."
+                            : data?.description[0].split(" ").slice(0, 33).join(" ")+"..."
+                        }
                     </p>
                 </div>
                 <div className="publish">
                     <div className="fsxl-l16">API by: <span className="value">{data.publisher}</span></div>
-                    <div className="fsxl-l16">Published on: <span className="value">{new Date(data.firstRelease).toLocaleDateString()}</span></div>
+                    <div className="fsxl-l16">Published on: <span className="value">{data.firstRelease}</span></div>
                     <div className="fsxl-l16">Released version: <span className="value">{data.currentVersion}</span></div>
                 </div>
             </div>

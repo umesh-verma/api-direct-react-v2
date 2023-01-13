@@ -110,11 +110,11 @@ export default function Main() {
     // console.log(fhirResList);
   }, [])
 
-  useEffect(() => {
-    console.log(data);
-    // console.log(fhirResTitle);
-    // console.log(fhirResList);
-  }, [data])
+  // useEffect(() => {
+  //   console.log(data);
+  //   // console.log(fhirResTitle);
+  //   // console.log(fhirResList);
+  // }, [data])
 
   function handleSelectChange({ target }) {
     if (/true|false/.test(target.value)) {

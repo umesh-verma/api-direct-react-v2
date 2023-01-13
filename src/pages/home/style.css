@@ -202,8 +202,11 @@ section.cards {
 }
 
 .cards .card .brand-image-hold {
-    max-width: 50px;
-    max-height: 50px;
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    background-color: #fff;
     border-radius: 50%;
     overflow: hidden;
 }
@@ -298,6 +301,8 @@ section.cards {
     top: 50%;
     transform: translateY(-50%);
     position: absolute;
+    max-height: 8.2ch;
+    overflow: hidden;
 }
 
 .cards.tile .card .publish {
