@@ -197,13 +197,15 @@ section.cards {
 
 .cards .card .brand-n-title {
     display: flex;
-    column-gap: 1rem;
+    column-gap: 0.5rem;
     justify-content: space-between;
 }
 
 .cards .card .brand-image-hold {
-    width: 50px;
-    height: 50px;
+    min-width: 3rem;
+    max-width: 3rem;
+    min-height: 3rem;
+    max-height: 3rem;
     display: grid;
     place-items: center;
     background-color: #fff;
@@ -298,10 +300,10 @@ section.cards {
 .cards.tile .card .desc {
     width: 30%;
     left: 35%;
-    top: 50%;
+    top: 57%;
     transform: translateY(-50%);
     position: absolute;
-    max-height: 8.2ch;
+    /* max-height: 8.2ch; */
     overflow: hidden;
 }
 
@@ -335,6 +337,9 @@ section.cards {
 
     section.what .know-form form {
         width: 100%;
+    }
+    .cards.tile .brand-n-title {
+        width: 30%;
     }
 }
 
@@ -395,6 +400,10 @@ section.cards {
     section.not-got .l-hold>div .know-form {
         width: 45%;
     }
+
+    .cards.tile .brand-n-title {
+        width: 80%;
+    }
 }
 
 @media (width < 768px) {
@@ -425,6 +434,9 @@ section.cards {
     }
     section.direct .view-switch {
         display: none;
+    }
+    .cards.tile .brand-n-title {
+        width: 60%;
     }
 }
 
