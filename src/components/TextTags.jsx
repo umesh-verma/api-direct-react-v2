@@ -9,14 +9,14 @@ export function EHR() {
     )
 }
 
-// export function EHR() {
-//     return (
-//         <div className="text-tag">
-//             <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/note.png"/>
-//             <div className="tag-text">EHR</div>
-//         </div>
-//     )
-// }
+export function NationalSystems() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/api-connect-images/National-System-icon.png" />
+            <div className="tag-text">NationalSystem</div>
+        </div>
+    )
+}
 
 export function EhrIcon() {
     return (
@@ -68,8 +68,17 @@ export function CliniciansIcon() {
 export function Workflow() {
     return (
         <div className="text-tag">
-            <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/App-icon.png"/>
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/api-connect-images/App-icon.png" />
             <div className="tag-text">Workflow Management</div>
+        </div>
+    )
+}
+
+export function Platform() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/api-connect-images/App-icon.png" />
+            <div className="tag-text">Platform</div>
         </div>
     )
 }
@@ -77,7 +86,7 @@ export function Workflow() {
 export function EPR() {
     return (
         <div className="text-tag">
-            <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/App-icon.png"/>
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/api-connect-images/App-icon.png" />
             <div className="tag-text">EPR</div>
         </div>
     )
@@ -86,40 +95,212 @@ export function EPR() {
 export function IntegratedCares() {
     return (
         <div className="text-tag">
-            <img className="tag-Image" src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/IntegratedCares.png"/>
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/IntegratedCares.png" />
             <div className="tag-text">IntegratedCare</div>
         </div>
     )
 }
 
-export function NationalSystems() {
+export function App() {
     return (
         <div className="text-tag">
-            <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/National-System-icon.png"/>
-            <div className="tag-text">NationalSystem</div>
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/api-connect-images/App-icon.png" />
+            <div className="tag-text">APP</div>
         </div>
     )
 }
 
-export default function TextTagRenderer ({ tag }) {
+
+export function EMR() {
+    return (
+        <div className="text-tag">
+            <svg width="13" height="17" viewBox="0 0 13 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.9607 4.43214L7.71071 0.182143C7.58929 0.0607143 7.46786 0 7.28571 0H1.21429C0.546429 0 0 0.546429 0 1.21429V15.7857C0 16.4536 0.546429 17 1.21429 17H10.9286C11.5964 17 12.1429 16.4536 12.1429 15.7857V4.85714C12.1429 4.675 12.0821 4.55357 11.9607 4.43214ZM7.28571 1.45714L10.6857 4.85714H7.28571V1.45714ZM10.9286 15.7857H1.21429V1.21429H6.07143V4.85714C6.07143 5.525 6.61786 6.07143 7.28571 6.07143H10.9286V15.7857Z" fill="#059B9C" />
+            </svg>
+            <div className="tag-text">EMR</div>
+        </div>
+    )
+}
+
+export function SecondaryCare() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/api-connect-images/Secondary-Care-icon.png" />
+            <div className="tag-text">SecondaryCare</div>
+        </div>
+    )
+}
+
+export function PrimaryCare() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/api-connect-images/Primary-Care-icon.png" />
+            <div className="tag-text">PrimaryCare</div>
+        </div>
+    )
+}
+
+export function Mobile() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/api-connect-images/Mobile-icon.png" />
+            <div className="tag-text">Mobile</div>
+        </div>
+    )
+}
+
+export function Patients() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/api-connect-images/patient-icon.png" />
+            <div className="tag-text">Patients</div>
+        </div>
+    )
+}
+
+export function CommunityCare() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/api-connect-images/Community-Care-icon.png" />
+            <div className="tag-text">CommunityCare</div>
+        </div>
+    )
+}
+
+export function Medicare() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/medicare.png" />
+            <div className="tag-text">Medicare</div>
+        </div>
+    )
+}
+
+export function MedicalImaging() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/MedicalImagings.png" />
+            <div className="tag-text">Medical Imaging</div>
+        </div>
+    )
+}
+
+export function Diagnostics() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/diagnostics.png" />
+            <div className="tag-text">Diagnostics</div>
+        </div>
+    )
+}
+
+export function Fitness() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/fitness.png" />
+            <div className="tag-text">Fitness</div>
+        </div>
+    )
+}
+
+export function DataAnalytics() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/Data-Analytics-logo-1.svg" />
+            <div className="tag-text">Data & Analytics</div>
+        </div>
+    )
+}
+
+export function Telehealth() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/telehealth.png" />
+            <div className="tag-text">Telehealth</div>
+        </div>
+    )
+}
+
+export function Appointment() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/appointment.png" />
+            <div className="tag-text">Appointment</div>
+        </div>
+    )
+}
+
+export function Pharmacy() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/pharmacy.png" />
+            <div className="tag-text">Pharmacy</div>
+        </div>
+    )
+}
+
+export function Metadata() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/metadata.png" />
+            <div className="tag-text">Metadata</div>
+        </div>
+    )
+}
+
+export function Research() {
+    return (
+        <div className="text-tag">
+            <img className="tag-Image" alt="icon logo" src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/research.png" />
+            <div className="tag-text">Research</div>
+        </div>
+    )
+}
+
+
+
+export default function TextTagRenderer({ tag }) {
     switch (tag) {
-        case "EHR": return <EHR/>;
+        case "EHR": return <EHR />;
         case "HOSPITALS": return <Hospitals />;
         case "HOSPITAL": return <Hospitals />;
-        case "CLINICIANS" : return <Clinicians />;
-        case "CLINICIAN" : return <Clinicians />;
-        case "WORKFLOW": return <Workflow/>;
-        case "EPR": return <EPR/>;
-        case "INTEGRATED-CARES": return <IntegratedCares/>;
-        case "INTEGRATED-CARE": return <IntegratedCares/>;
-        case "INTEGRATEDCARES": return <IntegratedCares/>;
-        case "INTEGRATEDCARE": return <IntegratedCares/>;
-        case "NATIONALSYSTEM": return <NationalSystems/>;
-        case "NATIONAL-SYSTEM": return <NationalSystems/>;
-        case "NATIONALSYSTEMS": return <NationalSystems/>;
-        case "NATIONAL-SYSTEMS": return <NationalSystems/>;
+        case "CLINICIANS": return <Clinicians />;
+        case "CLINICIAN": return <Clinicians />;
+        case "WORKFLOW": return <Workflow />;
+        case "EPR": return <EPR />;
+        case "INTEGRATED-CARES": return <IntegratedCares />;
+        case "INTEGRATED-CARE": return <IntegratedCares />;
+        case "INTEGRATEDCARES": return <IntegratedCares />;
+        case "INTEGRATEDCARE": return <IntegratedCares />;
+        case "NATIONALSYSTEM": return <NationalSystems />;
+        case "NATIONAL-SYSTEM": return <NationalSystems />;
+        case "NATIONALSYSTEMS": return <NationalSystems />;
+        case "NATIONAL-SYSTEMS": return <NationalSystems />;
+        case "APP": return <App />;
+        case "SECONDARYCARE": return <SecondaryCare />;
+        case "MOBILE": return <Mobile />;
+        case "PRIMARYCARE": return <PrimaryCare/>;
+        case "EMR": return <EMR/>;
+        case "PATIENTS": return <Patients/>;
+        case "PLATFORM": return <Platform/>;
+        case "PATIENT": return <Patients/>;
+        case "COMMUNITYCARE": return <CommunityCare/>;
+        case "MEDICARE": return <Medicare/>;
+        case "MEDICALIMAGING": return <MedicalImaging/>;
+        case "DIAGNOSTICS": return <Diagnostics/>;
+        case "DIAGNOSTIC": return <Diagnostics/>;
+        case "FITNESS": return <Fitness/>;
+        case "DATAANALYTICS": return <DataAnalytics/>;
+        case "DATA-ANALYTICS": return <DataAnalytics/>;
+        case "DATA & ANALYTICS": return <DataAnalytics/>;
+        case "DATA ANALYTICS": return <DataAnalytics/>;
+        case "TELEHEALTH": return <Telehealth/>;
+        case "APPOINTMENT": return <Appointment/>;
+        case "PHARMACY": return <Pharmacy/>;
+        case "METADATA": return <Metadata/>;
+        case "RESEARCH": return <Research/>;
         default: return <></>;
-    } 
+    }
 }
 
 // TypeMismatchError: Expected 'number' found 'string';
@@ -128,7 +309,7 @@ export default function TextTagRenderer ({ tag }) {
 export function GridIcon() {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <mask id="mask0_1238_6587" style={{maskType:"alpha"}} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+            <mask id="mask0_1238_6587" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                 <rect width="24" height="24" fill="#D9D9D9" />
             </mask>
             <g mask="url(#mask0_1238_6587)">
@@ -141,7 +322,7 @@ export function GridIcon() {
 export function ListIcon() {
     return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <mask id="mask0_1238_6948" style={{maskType: "alpha"}} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+            <mask id="mask0_1238_6948" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                 <rect width="24" height="24" fill="#CCD1D3" />
             </mask>
             <g mask="url(#mask0_1238_6948)">
@@ -150,163 +331,3 @@ export function ListIcon() {
         </svg>
     )
 }
-
-// --------------------------------
-
-
-
-// export function EhrIcon() {
-//     return (
-//          <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/note.png"/>
-//     )
-// }
-// export function Hospitals() {
-//     return (
-//         <div className="text-tag">
-//             <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/hospital.png"/>
-//             <div className="tag-text">Hospitals</div>
-//         </div>
-//     )
-// }
-
-// export function HospitalIcon() {
-//     return (
-//        <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/hospital.png"/>
-//     )
-// }
-
-// export function Clinicians() {
-//     return (
-//         <div className="text-tag">
-//             <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/Clinician-icon.png"/>
-
-//             <div className="tag-text">Clinicians</div>
-//         </div>
-//     )
-// }
-
-// export function CliniciansIcon() {
-//     return (
-//        <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/Clinician-icon.png"/>
-//     )
-// }
-
-// export function Workflow() {
-//     return (
-//         <div className="text-tag">
-//             <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/App-icon.png"/>
-//             <div className="tag-text">Workflow Management</div>
-//         </div>
-//     )
-// }
-
-// export function WorkflowIcon() {
-//     return (
-//        <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/App-icon.png"/>
-//     )
-// }
-
-// export function EPR() {
-//     return (
-//         <div className="text-tag">
-//             <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/App-icon.png"/>
-//             <div className="tag-text">EPR</div>
-//         </div>
-//     )
-// }
-
-// export function EPRIcon() {
-//     return (
-//        <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/App-icon.png"/>
-//     )
-// }
-
-// export function IntegratedCares() {
-//     return (
-//         <div className="text-tag">
-//             <img className="tag-Image" src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/IntegratedCares.png"/>
-//             <div className="tag-text">IntegratedCare</div>
-//         </div>
-//     )
-// }
-
-// export function IntegratedCaresIcon() {
-//     return (
-//        <img className="tag-Image" src="https://www.alphalake.ai/hubfs/API%20Direct%20Logo/IntegratedCares.png"/>
-//     )
-// }
-
-// export function NationalSystems() {
-//     return (
-//         <div className="text-tag">
-//             <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/National-System-icon.png"/>
-//             <div className="tag-text">NationalSystem</div>
-//         </div>
-//     )
-// }
-
-// export function NationalSystemIcon() {
-//     return (
-//        <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/National-System-icon.png"/>
-//     )
-// }
-
-// export function CommunityCare() {
-//     return (
-//         <div className="text-tag">
-//             <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/Community-Care-icon.png"/>
-//             <div className="tag-text">CommunityCare</div>
-//         </div>
-//     )
-// }
-
-// export function CommunityCareIcon() {
-//     return (
-//        <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/Community-Care-icon.png"/>
-//     )
-// }
-
-// export function Patient() {
-//     return (
-//         <div className="text-tag">
-//             <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/patient-icon.png"/>
-//             <div className="tag-text">Patien</div>
-//         </div>
-//     )
-// }
-
-// export function PatientIcon() {
-//     return (
-//        <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/patient-icon.png"/>
-//     )
-// }
-
-// export function Mobile() {
-//     return (
-//         <div className="text-tag">
-//             <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/Mobile-icon.png"/>
-//             <div className="tag-text">Mobile</div>
-//         </div>
-//     )
-// }
-
-// export function MobileIcon() {
-//     return (
-//        <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/Mobile-icon.png"/>
-//     )
-// }
-
-// export function NationalSystem() {
-//     return (
-//         <div className="text-tag">
-//             <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/Mobile-icon.png"/>
-//             <div className="tag-text">Mobile</div>
-//         </div>
-//     )
-// }
-
-// export function MobileIcon() {
-//     return (
-//        <img className="tag-Image" src="https://www.alphalake.ai/hubfs/api-connect-images/Mobile-icon.png"/>
-//     )
-// }

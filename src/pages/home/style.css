@@ -201,6 +201,13 @@ section.cards {
     justify-content: space-between;
 }
 
+.cards.grid .card .brand-n-title {
+    height: 80px;
+}
+.cards.grid .card .brand-n-title .fsxl36 {
+    font-size: 30px;
+}
+
 .cards .card .brand-image-hold {
     min-width: 3rem;
     max-width: 3rem;
