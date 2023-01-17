@@ -11,56 +11,9 @@ import "./style.css";
 const tags = [
     { title: "EHR", tag: "EHR", iconUrl: "/images/ehr-page.svg", icon: <EhrIcon /> },
     { title: "Hospital", tag: "Hospital", iconUrl: "/images/hospital-h.svg", icon: <HospitalIcon /> },
-    { title: "Clinicians", tag: "Clinicians", iconUrl: "/images/clinicians.svg", icon: <CliniciansIcon /> },
+    { title: "Clinicians", tag: "Clinician", iconUrl: "/images/clinicians.svg", icon: <CliniciansIcon /> },
 ]
 
-const fakeCards = [
-    {
-        title: "Cerner R4 Millenium",
-        logoUrl: "https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/cerner-1.png",
-        imgTags: ["FHIR", "WORKATO"],
-        textTags: ["EHR", "HOSPITALS", "CLINICIANS"],
-        toolTags: ["GITHUB", "SWAGGER"],
-        description: `Cerner Ignite APIs are cloud-based allowing for rapid,
-        agile deployment of future updates or enhancements.
-        It also simplifies implementation of the...`,
-        publisher: {
-            by: "Cerner",
-            date: "xx/xx/xx",
-            version: "xx.xx.alpha"
-        }
-    },
-    {
-        title: " Millenium",
-        logoUrl: "https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/cerner-1.png",
-        imgTags: ["FHIR", "WORKATO"],
-        textTags: ["EHR", "HOSPITALS", "CLINICIANS"],
-        toolTags: ["GITHUB", "SWAGGER"],
-        description: `Cerner Ignite APIs are cloud-based allowing for rapid,
-        agile deployment of future updates or enhancements.
-        It also simplifies implementation of the...`,
-        publisher: {
-            by: "Cerner",
-            date: "xx/xx/xx",
-            version: "xx.xx.alpha"
-        }
-    },
-    {
-        title: "Cerner R4",
-        logoUrl: "https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/cerner-1.png",
-        imgTags: ["NON-FHIR", "WORKATO"],
-        textTags: ["HOSPITALS", "CLINICIANS"],
-        toolTags: ["GITHUB", "SWAGGER"],
-        description: `Cerner Ignite APIs are cloud-based allowing for rapid,
-        agile deployment of future updates or enhancements.
-        It also simplifies implementation of the...`,
-        publisher: {
-            by: "Cerner",
-            date: "xx/xx/xx",
-            version: "xx.xx.alpha"
-        }
-    }
-]
 
 function matchAtleastOne (arr1 = [], arr2 = []) {
     for (let index = 0; index < arr1.length; index++) {
@@ -190,7 +143,7 @@ export default function Main() {
     return (
         <main id="home">
             <section className="cdh hero py-3">
-                <div className="container-fluid d-flex">
+                <div className="container-fluid px-0 d-flex">
                     <div className="d-flex py-4 my-auto w-100">
                         <div className="l-bg d-flex">
                             <div className="my-auto">
@@ -211,7 +164,9 @@ export default function Main() {
                     </div>
                 </div>
                 <div className="text-center text-white browse">
-                    <h4 className="fsxl24" onClick={executeScroll}>Browse our API Library </h4>
+                    <h4 className="fsxl24" style={{ cursor: "pointer" }} onClick={executeScroll}>Browse our API Library <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-down-short" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z" />
+                    </svg> </h4>
                 </div>
             </section>
 
@@ -278,9 +233,12 @@ export default function Main() {
                                 <h3 className="fsxl32 font-mont text-white fw-600">
                                     Not got an API yet? The team over at Alphalake Ai can build you one! 😊
                                 </h3>
-                                <p className="fsxl-l16 font-lucida text-white">
+                                
+                                <div className="fsxl-l16 font-lucida text-white pt-2">
                                     Just fill in the contact form and we will be in touch soon!
-                                </p>
+                                </div>
+
+                                <img className='not-got-dots' src="https://6637851.fs1.hubspotusercontent-na1.net/hubfs/6637851/Api%20Direct%20Version%202%20Resources/Image/cir_bg_2.svg" alt="dots" />
                             </div>
                             <div className="know-form font-mont">
                                 <form onSubmit={onBuildFormSubmit}>
