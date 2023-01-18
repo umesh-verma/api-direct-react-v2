@@ -305,7 +305,6 @@ section.cards {
 
 .cards.tile .card .tool-imgs {
     column-gap: 32px;
-    margin-top: 20px;
 }
 
 .cards.tile .card .text-tags {
@@ -334,17 +333,26 @@ section.cards {
     font-family: var(--font-mont);
     position: absolute;
     left: 75%;
-    bottom: 30px;
+    bottom: 1rem;
 }
 
 section.not-got .not-got-dots {
     position: absolute;
 }
 
+@media (min-width: 1200px) {
+    .cards.tile .card .tool-imgs  {
+        margin-top: 20px;
+    }
+}
+
 @media (min-width: 1025px) {
     section.hero .r-bg {
         background-position-y: 40%;
         background-size: 75%;
+    }
+    .cards.tile .card .publish {
+        bottom: 30px;
     }
 }
 
